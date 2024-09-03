@@ -1,0 +1,22 @@
+body {
+    background-image: url('../imagenes/skil.jfif');
+    background-size: cover; 
+   
+    background-repeat: no-repeat; 
+}
+
+.titulo{
+    display: block;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 45%;
+}
+
+.menu{
+    background-color: rgba(80, 37, 109, 0.616);
+    height: 460px;
+    width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
