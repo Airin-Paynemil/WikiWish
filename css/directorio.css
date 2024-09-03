@@ -1,0 +1,28 @@
+.directorio{
+    background-color: rgba(48, 1, 66, 0.555);
+    position: fixed;
+    height: 100%;
+    width: 300px; 
+    text-align: center;
+}
+
+#dir-titulo{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.menu{
+    text-decoration: none;
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-item{
+    margin: 5px 0px;
+    padding: 20px 0px;
+    color: rgb(212, 8, 8);
+    text-decoration: none;
+    background-color: rgb(107, 94, 170);
+}
