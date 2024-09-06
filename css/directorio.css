@@ -1,0 +1,12 @@
+.directorio{
+    background-color: rgba(48, 1, 66, 0.555);
+    position: fixed;
+    height: 100%;
+    width: 300px;
+    text-decoration: none;
+    
+}
+
+ul{
+    list-style-type: none;
+}
