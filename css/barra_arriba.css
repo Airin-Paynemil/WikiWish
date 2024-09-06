@@ -5,18 +5,17 @@
     -ms-flex-pack: justify;
     align-items: center;
     border-bottom: 1px solid hsl(0, 100%, 50%);
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     height: 56px;
     justify-content: space-between;
-    left: 0;
     padding: 0 24px;
     position: fixed;
     top: 0;
-    width: 100%;
-    z-index: 98
+    width: 100%; /* Ajuste del ancho */
+    z-index: 98;
+    box-sizing: border-box; /* Asegura que el padding se incluya en el ancho total */
 }
+
 
 .nav-bar-pc-bg {
     /*
@@ -75,5 +74,18 @@
     height: 32px;
     width: 32px
 }
+
+#buscador{
+    width: 700px;
+    height: 23px;
+    border-radius: 20px;
+    border: transparent;
+    border-bottom: solid 1px #ccc;
+    padding: 10px 10px 10px 30px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+
 
 
