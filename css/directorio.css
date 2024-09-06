@@ -10,11 +10,11 @@
     font-size: 30px;
     font-family: 'Times New Roman', Times, serif;
     text-align: center;
+    padding: 10px 10px;
 }
 
 .menu{
     text-decoration: none;
-    margin: 20px 0px;
     display: flex;
     flex-direction: column;
 }
