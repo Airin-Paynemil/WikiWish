@@ -1,5 +1,5 @@
 .directorio{
-    background-color: rgba(48, 1, 66, 0.555);
+    background-color: rgb(49, 18, 61);
     position: fixed;
     height: 100%;
     width: 300px; 
@@ -13,7 +13,7 @@
     font-weight: bold;
     font-style: bold;
     text-align: center;
-    padding: 10px 10px;
+    padding: 20px 10px;
 }
 
 .menu{
@@ -27,11 +27,17 @@
     font-family: 'Inknut';
     src: url(/fuentes/InknutAntiqua-Light.ttf);
     font-style: bold;
-    margin: 5px 0px;
+    margin: 5px 10px;
     padding: 20px 0px;
     color: rgb(197, 195, 86);
     text-decoration: none;
     background-color: rgb(107, 94, 170);
+    border-radius: 10px;
+}
+
+.menu-item:hover{
+    color: rgb(126, 110, 24);
+    background-color: rgb(40, 30, 88);
 }
 
 .barra-direccion{
@@ -43,6 +49,6 @@
     width: calc(100% - 300px);
     margin-left: 300px;
     padding: 20px 60px;
-    background-color: darkorchid;
+    background-color: rgb(65, 37, 109);
     box-sizing: border-box;
 }
