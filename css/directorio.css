@@ -8,7 +8,10 @@
 
 #dir-titulo{
     font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Inknut';
+    src: url(/fuentes/InknutAntiqua-ExtraBold.ttf);
+    font-weight: bold;
+    font-style: bold;
     text-align: center;
     padding: 10px 10px;
 }
@@ -20,9 +23,26 @@
 }
 
 .menu-item{
+    font-size: 20px;
+    font-family: 'Inknut';
+    src: url(/fuentes/InknutAntiqua-Light.ttf);
+    font-style: bold;
     margin: 5px 0px;
     padding: 20px 0px;
-    color: rgb(212, 8, 8);
+    color: rgb(197, 195, 86);
     text-decoration: none;
     background-color: rgb(107, 94, 170);
+}
+
+.barra-direccion{
+    display: flex;
+}
+
+.info {
+    min-height: 100vh;
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    padding: 20px 60px;
+    background-color: darkorchid;
+    box-sizing: border-box;
 }
