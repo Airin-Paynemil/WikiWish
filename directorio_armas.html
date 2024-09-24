@@ -44,7 +44,7 @@
     <div id="division_barra" class="info">
         <nav class="barra-direccion">
             <div>
-                <a href="index.html>"><span>Home</span></a>
+                <a href="index.html"><span>Home</span></a>
             </div>
             <div>
                 <i>/</i>
@@ -55,14 +55,27 @@
         <div>
             <h1 id="titulo-info">Armas</h1>
         </div>
+        
         <div class="contenedor-filtros">
             <div class="filtro">
                 <span>Filtro</span>
             </div>
-            <div>
-                
+
+            <div class="filtro">
+                <button class="filtro-cara">TIPO</button>
+                <div class="filtro-lista-contenido">
+                    <form id="menuForm">
+                        <label><input type="checkbox" name="option1" value="opcion1"> Opción 1</label>
+                        <label><input type="checkbox" name="option2" value="opcion2"> Opción 2</label>
+                        <label><input type="checkbox" name="option3" value="opcion3"> Opción 3</label>
+                        <button type="reset">Reset</button>
+                        <button type="button" onclick="saveSelections()">Aceptar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+
+    <script src="dir-armas-filtro.js"></script>
 </body>
 </html>
