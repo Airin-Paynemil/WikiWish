@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/barra_arriba.css" rel="stylesheet" type="text/css">
     <link href="css/inicio.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" media="all" href="style.css" />
     <title>WikiWish</title>
 </head>
 <body>
@@ -33,21 +34,35 @@
 
             <div class="menu">
                <div class="cajita">
-                <button class="btn draw-border" id="miBoton">Armas</button>
+                <button class="btn draw-border" id="miBoton">personajes</button>
                 <script>
                     document.getElementById("miBoton").onclick = function() {
+                      window.location.href = "directorio_personajes.html";
+                    };
+                  </script>
+                   <div class="svg-wrapper">
+                    <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+                      <rect id="shape" height="40" width="150" />
+                     
+                    </svg>
+                    <div class="imagen1">
+                    </div>
+                  </div>
+                  
+
+               </div>
+              
+
+               <div class="cajita2">
+                <button class="btn draw-border" id="miBoton2">Armas   </button>
+                <script>
+                    document.getElementById("miBoton2").onclick = function() {
                       window.location.href = "directorio_armas.html";
                     };
                   </script>
-               </div>
+                    
+                    <div class="imagen2"></div>
 
-               <div class="cajita2">
-                <button class="btn draw-border" id="miBoton">Personajes</button>
-                <script>
-                    document.getElementById("miBoton").onclick = function() {
-                      window.location.href = "directorio.html";
-                    };
-                  </script>
                </div>
 
             </div>
