@@ -33,3 +33,19 @@ function loadSelections() {
     });
 }
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filtroTipo = document.getElementById('filtro-tipo');
+    const filtroListaContenido = document.getElementById('filtro-lista-contenido');
+
+    filtroTipo.addEventListener('click', function() {
+        if (filtroListaContenido.style.display === 'block') {
+            filtroListaContenido.style.display = 'none';
+        } else {
+            filtroListaContenido.style.display = 'block';
+        }
+    });
+});
+
+
