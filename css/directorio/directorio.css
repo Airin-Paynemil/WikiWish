@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "titulo";
+    src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf);
+}
+
 .directorio{
     background-color: rgb(52, 48, 88);
     position: fixed;
@@ -73,7 +78,7 @@
     z-index: -5;
     transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
 }
-  
+
 .star-3 {
     position: absolute;
     top: 40%;
@@ -187,6 +192,14 @@
 .barra-direccion{
     display: flex;
 }
+                                              
+#titulo-info{
+    padding: 0%;
+    margin: 0px 0px 10px 0px;
+    font-size: 30px;
+    font-family: "titulo";
+
+}
 
 #link{/*REVISAR*/
     font-family: 'Inknut';
@@ -209,96 +222,10 @@
 }
 
 
-.contenedor-filtros{
-    display: flex;
-    gap: 20px;
-    width: 300px;
-}
-
-.lista-filtro{
-    display: flex;
-    flex-direction: column;
-    
-    
-}
-
 .cursor{
     cursor: pointer;
 }
 
-.filtro{
-
-}
-
-
-
-#filtro-tipo {
-    width: 200px;
-    border-radius: 10px;
-    background-color: rgb(35, 20, 77);
-    color: rgb(12, 2, 17);
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.filtro-lista-contenido {
-    color: #dfd657;
-    font-family: "/imagenes/skill.jfif";
-    margin-top: 5px;
-    border-radius: 10%;
-    text-align: center;
-    display: none;
-    position: absolute;
-    background-color: rgb(35, 20, 77);
-    width: 200px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.filtro-lista-contenido form {
-    padding: 12px 16px;
-}
-
-.filtro-lista-contenido label {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.filtro-lista-contenido label :hover{
-    background: rgb(197, 195, 86);
-}
-
-.filtro-lista-contenido input[type="checkbox"] {
-    position: absolute;
-    left: 20px;
-    margin-top: 5px; /* Ajusta según sea necesario */
-}
-
-.filtro:hover .filtro-lista-contenido {
-    display: block;
-}
-
-button[type="reset"], button[type="button"] {
-    margin: 10px 0px 5px 0px;
-    padding: 8px 15px;
-    cursor: pointer;
-}
-
-button[type="reset"] {
-    background-color: rgb(40, 30, 88);
-    border: 1px solid #dfd657;
-    border-radius: 10%;
-    color: #dfd657;
-}
-
-button[type="button"] {
-    background-color: rgb(40, 30, 88);
-    border: 1px solid #dfd657;
-    border-radius: 10%;
-    color: #dfd657;
-}
 
 .armas-contenedor {
     display: flex;
@@ -331,6 +258,7 @@ button[type="button"] {
     position: relative;
     margin: 10px 10px 10px 25px;
     align-self: center;
+    z-index: 1;
      /* Ajusta este valor para mover el icono a la izquierda */
 }
 
@@ -338,15 +266,9 @@ button[type="button"] {
     margin: 10px 15px 10px 10px;
 }
 
-
-
 .nombre{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-size: medium;
 
 }
-
-
-
-
 

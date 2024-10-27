@@ -1,0 +1,10 @@
+#contenedor-calculadora{
+    display: flex;
+
+}
+
+.division-calculadora{
+    height: 500px;
+    width: 30%;
+    background: chartreuse;
+}

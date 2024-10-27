@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Opciones</title>
+    <style>
+        /* Estilos CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        .filter-container {
+            margin: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #filter-toggle {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        #filter-options {
+            margin-top: 10px;
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        .filter-buttons {
+            margin-top: 10px;
+        }
+        .filter-buttons button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-right: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .filter-buttons button:last-child {
+            background-color: #f44336;
+        }
+        #selected-options {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+        .box {
+            position: relative;
+        }
+        .input {
+            padding: 10px;
+            width: 80px;
+            height: 80px;
+            background: none;
+            border: 4px solid #ffd52d;
+            border-radius: 50px;
+            box-sizing: border-box;
+            font-family: Comic Sans MS;
+            font-size: 26px;
+            color: #ffd52d;
+            outline: none;
+            transition: .5s;
+        }
+        .box input.expanded {
+            width: 350px;
+            background: #3b3640;
+            border-radius: 10px;
+        }
+        .box i {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translate(-50%,-50%);
+            font-size: 26px;
+            color: #ffd52d;
+            transition: .2s;
+        }
+        .box:hover i {
+            opacity: 0;
+            z-index: -1;
+        }
+        /* YouTube icon */
+        #ytb {
+            height: 50px;
+            width: 50px;
+            text-align: center;
+            line-height: 52px;
+            border: 2px solid transparent;
+            color: #ff1717;
+            font-size: 25px;
+            transition: 0.3s;
+        }
+        #ytb:hover {
+            border-radius: 50%;
+            border-color: #ff1717;
+            box-shadow: 0 0 10px #ff4040;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <form name="search">
+            <input type="text" class="input" name="txt">
+        </form>
+        <i class="fas fa-search"></i>
+    </div>
+    <a href="https://www.youtube.com/c/ShortCode" target="_blank" id="ytb">
+        <i class="fab fa-youtube"> </i>
+    </a>
+    <div class="filter-container">
+        <button id="filter-toggle">Seleccionar Opciones</button>
+        <div id="filter-options" class="hidden">
+            <label><input type="checkbox" value="Opción 1"> Opción 1</label><br>
+            <label><input type="checkbox" value="Opción 2"> Opción 2</label><br>
+            <label><input type="checkbox" value="Opción 3"> Opción 3</label><br>
+            <label><input type="checkbox" value="Opción 4"> Opción 4</label><br>
+            <div class="filter-buttons">
+                <button id="apply-filters">Aceptar</button>
+                <button id="reset-filters">Restablecer</button>
+            </div>
+        </div>
+        <div id="selected-options"></div>
+    </div>
+    <script>
+        // Lógica en JavaScript
+        document.getElementById('filter-toggle').addEventListener('click', function() {
+            const options = document.getElementById('filter-options');
+            options.classList.toggle('hidden');
+        });
+
+        const checkboxes = document.querySelectorAll('#filter-options input[type="checkbox"]');
+        const selectedOptionsDiv = document.getElementById('selected-options');
+        document.getElementById('apply-filters').addEventListener('click', updateSelectedOptions);
+        document.getElementById('reset-filters').addEventListener('click', resetFilters);
+
+        function updateSelectedOptions() {
+            const selectedValues = Array.from(checkboxes)
+                .filter(checkbox => checkbox.checked)
+                .map(checkbox => checkbox.value);
+            selectedOptionsDiv.textContent = 'Seleccionadas: ' + selectedValues.join(', ');
+        }
+
+        function resetFilters() {
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            updateSelectedOptions();
+        }
+
+        // Lógica para mantener la barra de búsqueda expandida
+        const searchInput = document.querySelector('.box .input');
+        const searchIcon = document.querySelector('.box i');
+
+        searchInput.addEventListener('focus', function() {
+            this.classList.add('expanded');
+        });
+
+        searchInput.addEventListener('blur', function() {
+            if (!this.value) {
+                this.classList.remove('expanded');
+            }
+        });
+
+        searchIcon.addEventListener('click', function() {
+            searchInput.focus();
+        });
+    </script>
+</body>
+</html>

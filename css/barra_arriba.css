@@ -87,7 +87,7 @@
     width: 32px
 }
 
-#buscador{
+#buscador {
     background-color: transparent;
     width: 700px;
     height: 23px;
@@ -97,10 +97,15 @@
     outline: none;
     box-sizing: border-box;
     color: blanchedalmond;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    /* caret-color: transparent; Opcional, remueve el cursor */
 }
 
-
-
+input[type="search"]::-webkit-search-cancel-button {
+    appearance: none;
+}
 
 
 

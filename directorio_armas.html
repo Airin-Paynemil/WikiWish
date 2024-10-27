@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/barra_arriba.css" rel="stylesheet" type="text/css">
-    <link href="css/directorio.css" rel="stylesheet" type="text/css">
+    <link href="css/directorio/directorio.css" rel="stylesheet" type="text/css">
+    <link href="css/directorio/filtros.css" rel="stylesheet" type="text/css">
     <title>directorio</title>
 </head>
 <body>
@@ -55,41 +56,99 @@
         <div>
             <h1 id="titulo-info">Armas</h1>
         </div>
-        
-        <div class="contenedor-filtros">
-            <div class="filtro">
+
+        <div class="caja-filtros">
+            <div class="contenedor-filtros">
+              <div class="filtro">
+                <span>Calidad</span>
+              </div>
+              <div class="filter-container">
+                <button id="filter-toggle3">Seleccionar Opciones</button>
+                <div id="filter-options3" class="hidden">
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option3-1">Opción 1</label>
+                    <input type="checkbox" id="option3-1" value="Opción 1">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option3-1">Opción 2</label>
+                    <input type="checkbox" id="option3-2" value="Opción 2">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option3-3">Opción 3</label>
+                    <input type="checkbox" id="option3-3" value="Opción 3">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option3-4">Opción 4</label>
+                    <input type="checkbox" id="option3-4" value="Opción 4">
+                  </div>
+                  <div class="filter-buttons">
+                    <button id="apply-filters3">Aceptar</button>
+                    <button id="reset-filters3">Restablecer</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contenedor-filtros">
+              <div class="filtro">
                 <span>Filtro</span>
-            </div>
-
-            <div class="filtro">
-                <button id="filtro-tipo">TIPO</button>
-                <div class="filtro-lista-contenido" id="filtro-lista-tipo">
-                    <form id="menuForm">
-                        <label><input type="checkbox" name="option1" value="opcion1"> Opción 1</label>
-                        <label><input type="checkbox" name="option2" value="opcion2"> Opción 2</label>
-                        <label><input type="checkbox" name="option3" value="opcion3"> Opción 3</label>
-                        <button type="reset">Reset</button>
-                        <button type="button" onclick="saveSelections()">Aceptar</button>
-                    </form>
+              </div>
+              <div class="filter-container">
+                <button id="filter-toggle1">Atributos Secundarios</button>
+                <div id="filter-options1" class="hidden">
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option1">Opción 1</label>
+                    <input type="checkbox" id="option1" value="Opción 1">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option2">Opción 2</label>
+                    <input type="checkbox" id="option2" value="Opción 2">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option3">Opción 3</label>
+                    <input type="checkbox" id="option3" value="Opción 3">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option4">Opción 4</label>
+                    <input type="checkbox" id="option4" value="Opción 4">
+                  </div>
+                  <div class="filter-buttons">
+                    <button id="apply-filters1">Aceptar</button>
+                    <button id="reset-filters1">Restablecer</button>
+                  </div>
                 </div>
-            </div>
-            <div class="filtro">
-                <button id="filtro-tipo">Rareza</button>
-                <div class="filtro-lista-contenido" id="filtro-lista-contenido"> 
-                    <form id="menuForm">
-                        <label><input type="checkbox" name="option1" value="opcion1"> Opción 1</label>
-                        <label><input type="checkbox" name="option2" value="opcion2"> Opción 2</label>
-                        <label><input type="checkbox" name="option3" value="opcion3"> Opción 3</label>
-                        <button type="reset">Reset</button>
-                        <button type="button" onclick="saveSelections()">Aceptar</button>
-                    </form>
+              </div>
+              <div class="filter-container">
+                <button id="filter-toggle2">Tipo de Arma</button>
+                <div id="filter-options2" class="hidden">
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option2-1">Opción 1</label>
+                    <input type="checkbox" id="option2-1" value="Opción 1">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option2-2">Opción 2</label>
+                    <input type="checkbox" id="option2-2" value="Opción 2">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option2-3">Opción 3</label>
+                    <input type="checkbox" id="option2-3" value="Opción 3">
+                  </div>
+                  <div class="label-container" onclick="toggleCheckbox(this)">
+                    <label for="option2-4">Opción 4</label>
+                    <input type="checkbox" id="option2-4" value="Opción 4">
+                  </div>
+                  <div class="filter-buttons">
+                    <button id="apply-filters2">Aceptar</button>
+                    <button id="reset-filters2">Restablecer</button>
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>
+          </div>
+          
 
-        <!--contenedor info-->
+        <!--ARMAS-->
         <div id="armas-contenedor" class="armas-contenedor">
-            <div class="prueba">
+            <div class="prueba cursor">
                 <div class="contenedor-info">
                     <img src="imagenes/pompom.jpg" class="icono-info"/>
                     <div class="info-arma">
@@ -98,7 +157,7 @@
                     </div>
                 </div>
             </div>
-            <div class="prueba">
+            <div class="prueba cursor">
                 <div class="contenedor-info">
                     <img src="imagenes/pompom.jpg" class="icono-info"/>
                     <div class="info-arma">
@@ -107,7 +166,7 @@
                     </div>
                 </div>
             </div>
-            <div class="prueba">
+            <div class="prueba cursor">
                 <div class="contenedor-info">
                     <img src="imagenes/pompom.jpg" class="icono-info"/>
                     <div class="info-arma">
@@ -116,7 +175,7 @@
                     </div>
                 </div>
             </div>
-            <div class="prueba">
+            <div class="prueba cursor">
                 <div class="contenedor-info">
                     <img src="imagenes/pompom.jpg" class="icono-info"/>
                     <div class="info-arma">
@@ -125,11 +184,11 @@
                     </div>
                 </div>
             </div>
-            <div class="prueba"></div>
+            <div class="prueba cursor"></div>
         </div>
 
     </div>
 
-    <script src="dir-armas-filtro.js"></script>
+    <script src="js/dir-armas-filtro.js"></script>
 </body>
 </html>
