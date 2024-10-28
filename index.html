@@ -16,56 +16,79 @@
           <a href="index.html" target="_blank"></a>
       </div>
       <div class="nav-buscador">
-          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" 
-              class="nav-search-ic-search">
-              <path  
-                  fill-rule="evenodd" clip-rule="evenodd" d="M3.722 8.103a4.4 4.4 0 118.8 0 4.4 4.4 0 01-8.8 0zm4.4-6.8a6.8 6.8 0 103.885 12.382l2.466 2.466a1.2 1.2 0 001.697-1.697l-2.466-2.466A6.8 6.8 0 008.122 1.303z" fill="#fff" fill-opacity=".45">
-              </path>
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-search-ic-search">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M3.722 8.103a4.4 4.4 0 118.8 0 4.4 4.4 0 01-8.8 0zm4.4-6.8a6.8 6.8 0 103.885 12.382l2.466 2.466a1.2 1.2 0 001.697-1.697l-2.466-2.466A6.8 6.8 0 008.122 1.303z" fill="#fff" fill-opacity=".45"></path>
           </svg><!--svg es para el icono de lupa que no pierda calidad-->
           <input type="search" placeholder="Buscar..." id="buscador"/><!--agregar-->
       </div>
       <div class="user-panel-avatar">
           <img src="imagenes/pompom.jpg" alt="avatar">
       </div>
-  </div>
-            <div class="titulo">
-               <img src="./imagenes/titulo.png" alt="titulo" />
-            </div>
+    </div>
 
-            <div class="menu">
-               <div class="cajita">
-                <button class="btn draw-border" id="miBoton">personajes</button>
-                <script>
-                    document.getElementById("miBoton").onclick = function() {
-                      window.location.href = "directorio_personajes.html";
-                    };
-                  </script>
-                   <div class="svg-wrapper">
-                    <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-                      <rect id="shape" height="40" width="150" />
-                     
-                    </svg>
-                    <div class="imagen1">
-                    </div>
-                  </div>
-                  
+    <!-----ESTO ES LA PANTALLA------->
+    <header><!--header sirve como encabezado de pagina-->
+        <div class="titulo">
+          <img src="./imagenes/titulo.png" alt="titulo" />
+        </div>
+    </header>
 
-               </div>
-              
+    <nav class="caja-enlases"> <!--nav sirve para una seccion con enlases-->
+      <div class="cajita">
+        <div class="svg-wrapper">
+          <div class="iconos-menu">
+            <div class="imagen"></div>
+          </div>
+          <button class="btn draw-border" id="miBoton1">Personajes</button>
+        </div>
+      </div>
+      
+      <div class="cajita">
+        <div class="svg-wrapper">
+          <div class="iconos-menu">
+            <div class="imagen"></div>
+          </div>
+          <button class="btn draw-border" id="miBoton2">Armas</button>
+        </div>
+      </div>
 
-               <div class="cajita2">
-                <button class="btn draw-border" id="miBoton2">Armas   </button>
-                <script>
-                    document.getElementById("miBoton2").onclick = function() {
-                      window.location.href = "directorio_armas.html";
-                    };
-                  </script>
-                    
-                    <div class="imagen2"></div>
+      <div class="cajita">
+        <div class="svg-wrapper">
+          <div class="iconos-menu">
+            <div class="imagen"></div>
+          </div>
+          <button class="btn draw-border" id="miBoton3">Jefes y Enemigos</button>
+        </div>
+      </div>
 
-               </div>
+      <div class="cajita">
+        <div class="svg-wrapper">
+          <div class="iconos-menu">
+            <div class="imagen"></div>
+          </div>
+          <button class="btn draw-border" id="miBoton4">Calculadora de Mejoras</button>
+        </div>
+      </div>
 
-            </div>
+      <div class="cajita">
+        <div class="svg-wrapper">
+          <div class="iconos-menu">
+            <div class="imagen"></div>
+          </div>
+          <button class="btn draw-border" id="miBoton5">Historia de Deseos</button>
+        </div>
+      </div>
 
+      <div class="cajita">
+        <div class="svg-wrapper">
+          <div class="iconos-menu">
+            <div class="imagen"></div>
+          </div>
+          <button class="btn draw-border" id="miBoton6">Historia de Deseos</button>
+        </div>
+      </div>
+    </nav>
+
+    <script src="js/index-enlases.js"></script>
 </body>
 </html>

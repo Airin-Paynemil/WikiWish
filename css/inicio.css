@@ -1,122 +1,161 @@
 body {
-    background-image: url('../imagenes/skil.jfif');
-    background-size: cover; 
-   
-    background-repeat: no-repeat; 
+  background-image: url('../imagenes/skil.jfif');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.titulo{
-    display: block;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 45%;
+
+.titulo {
+  display: block;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
 }
 
-.menu{
-    background-color: rgba(80, 37, 109, 0.616);
-    height: 460px;
-    width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+.caja-enlases {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  column-gap: 10px;
+  row-gap: 30px;
+  background: rgba(52, 20, 80, 0.8);
+  margin: 8%;
+  padding: 2%;
+  align-items: center;
+  justify-content: center;
 }
 
-.cajita{
+.menu {
+  background-color: rgba(80, 37, 109, 0.616);
+  height: 460px;
+  width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cajita {
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.imagen-boton {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.iconos-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 70%; /* Ocupa el 70% del contenedor */
+}
+
+.imagen {
+  background-image: url('../imagenes/iconos/icono-personajes.png');
+  background-size: contain; /* Ajusta el tamaño de la imagen dentro del contenedor */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* No repite la imagen */
+  height: 80px; /* Altura fija */
+  width: 80px; /* Asegura que la imagen sea visible */
+}
+
+.svg-wrapper {
+  margin-top: 0;
   position: relative;
-   left: 10%;
-    margin-right: 20%;
-    top: 21px;
-    display:inline-block;
-}
-
-.imagen1{
-  position: relative;
-  top:10px;
-  background-image:url('../imagenes/img1.jpg') ;
   width: 150px;
   height: 150px;
+  display: inline-block;
+  border-radius: 3px;
+  margin-left: 5px;
+  margin-right: 5px
 }
 
-.cajita2{
-position: relative;
- right: 8%;
- top: 21px;
- display:inline-block;
- text-align: center; 
-  line-height: 50px;
- 
-}
 
-.imagen2{
+.btn {
+  background: #414921;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30%; /* Ocupa el 30% del contenedor */
   position: relative;
-  top:10px;
-  background-image:url('../imagenes/img2.jpg') ;
-  width: 150px;
-  height: 150px;
+  text-align: center;
+  overflow: hidden;
 }
 
-.draw-border {
-    box-shadow: inset 0 0 0 4px #390c4e;
-    color: #341450;
-    -webkit-transition: color 0.25s 0.0833333333s;
-    transition: color 0.25s 0.0833333333s;
-    position: relative;
-    width: 150px; /* Ancho fijo */
-  height: 50px; /* Alto fijo */
-  display: flex; /* Usamos Flexbox para centrar el contenido */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-    
-  }
-  .draw-border::before, .draw-border::after {
-    border: 0 solid transparent;
-    box-sizing: border-box;
-    content: '';
-    pointer-events: none;
-    position: absolute;
-    width: 0;
-    height: 0;
-    bottom: 0;
-    right: 0;
-  }
-  .draw-border::before {
-    border-bottom-width: 4px;
-    border-left-width: 4px;
-  }
-  .draw-border::after {
-    border-top-width: 4px;
-    border-right-width: 4px;
-  }
-  .draw-border:hover {
-    color: #ffe593;
-  }
-  .draw-border:hover::before, .draw-border:hover::after {
-    border-color: #ffe593;
-    -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
-    transition: border-color 0s, width 0.25s, height 0.25s;
-    width: 100%;
-    height: 100%;
-  }
-  .draw-border:hover::before {
-    -webkit-transition-delay: 0s, 0s, 0.25s;
-            transition-delay: 0s, 0s, 0.25s;
-  }
-  .draw-border:hover::after {
-    -webkit-transition-delay: 0s, 0.25s, 0s;
-            transition-delay: 0s, 0.25s, 0s;
-  }
-  
-  .btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    line-height: 1.5;
-    font: 700 1.2rem 'Roboto Slab', sans-serif;
-    padding: 1em 2em;
-    letter-spacing: 0.05rem;
-  }
-  .btn:focus {
-    outline: 2px dotted #55d7dc;
-  }
-  
- 
+.btn svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Asegura que el SVG esté debajo del texto */
+}
+
+.btn:hover {
+  background: #000000;
+  stroke: #ddfc6c; /* Color amarillo */
+}
+
+.btn span {
+  z-index: 1; /* Asegura que el texto esté encima del SVG */
+}
+
+
+.draw-border::before, .draw-border::after {
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.draw-border::before {
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+
+.draw-border::after {
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.draw-border:hover {
+  color: #ffe593;
+}
+
+.draw-border:hover::before, .draw-border:hover::after {
+  border-color: #ffe593;
+  -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+  transition: border-color 0s, width 0.25s, height 0.25s;
+  width: 100%;
+  height: 100%;
+}
+
+.draw-border:hover::before {
+  -webkit-transition-delay: 0s, 0s, 0.25s;
+  transition-delay: 0s, 0s, 0.25s;
+}
+
+.draw-border:hover::after {
+  -webkit-transition-delay: 0s, 0.25s, 0s;
+  transition-delay: 0s, 0.25s, 0s;
+}
+
+

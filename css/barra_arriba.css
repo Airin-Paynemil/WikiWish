@@ -47,15 +47,23 @@
     background: url(/imagenes/logo.png) no-repeat 50%/contain;
     display: block;
     height: 75px;
-    width: 114px
+    width: 114px;
+    cursor: pointer; /* Añade un cursor de puntero para indicar que es un enlace */
 }
+
+.nav-bar-pc-logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
 
 .nav-buscador {
     position: relative;
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    background-color: rgba(0,0,0,.25);
+    background-color: rgb(43, 40, 70);
     border: 1px solid hsla(0,0%,100%,.08);
     border-radius: 23px;
     display: -webkit-box;
@@ -91,22 +99,20 @@
     background-color: transparent;
     width: 700px;
     height: 23px;
-    border-radius: 20px;
     border: transparent;
-    padding: 10px 10px 10px 30px;
+    padding: 10px 5px 10px 5px;
     outline: none;
     box-sizing: border-box;
     color: blanchedalmond;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    /* caret-color: transparent; Opcional, remueve el cursor */
 }
 
-input[type="search"]::-webkit-search-cancel-button {
-    appearance: none;
+input[type="search"]:-webkit-autofill,
+input[type="search"]:-webkit-autofill:hover,
+input[type="search"]:-webkit-autofill:focus,
+input[type="search"]:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px rgb(43, 40, 70) inset !important;
+    -webkit-text-fill-color: blanchedalmond !important;
 }
-
-
-
-
