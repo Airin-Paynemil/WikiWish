@@ -82,7 +82,7 @@ body {
 
 
 .btn {
-  background: #414921;
+  background: #ff70c3;
   border: none;
   cursor: pointer;
   display: flex;
@@ -105,7 +105,7 @@ body {
 }
 
 .btn:hover {
-  background: #000000;
+  background: #6a03df;
   stroke: #ddfc6c; /* Color amarillo */
 }
 
