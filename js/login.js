@@ -1,4 +1,4 @@
-import { auth, signInWithEmailAndPassword } from "../firebaseConfig.js";
+import { auth, signInWithEmailAndPassword } from "../firebaseConfig";
 
 // Inicio de sesión de usuario
 const loginSubmit = document.getElementById('login-submit');
