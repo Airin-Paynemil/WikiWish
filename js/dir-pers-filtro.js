@@ -90,3 +90,90 @@ function resetFilters3() {
     });
     updateSelectedOptions3();
 }
+
+
+// Función para aplicar los filtros combinados
+function applyCombinedFilters() {
+    const elementosSeleccionados = Array.from(checkboxes1)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.getAttribute('data-filter'));
+
+    const armasSeleccionadas = Array.from(checkboxes2)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.getAttribute('data-filter'));
+
+    const rarezasSeleccionadas = Array.from(checkboxes3)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.getAttribute('data-filter'));
+
+    const personajes = document.querySelectorAll('.prueba.cursor');
+
+    personajes.forEach(personaje => {
+        const personajeElemento = personaje.getAttribute('data-filter-elemento');
+        const personajeArma = personaje.getAttribute('data-filter-arma');
+        const personajeRareza = personaje.getAttribute('data-filter-rareza');
+
+        const coincideElemento = elementosSeleccionados.length === 0 || elementosSeleccionados.includes(personajeElemento);
+        const coincideArma = armasSeleccionadas.length === 0 || armasSeleccionadas.includes(personajeArma);
+        const coincideRareza = rarezasSeleccionadas.length === 0 || rarezasSeleccionadas.includes(personajeRareza);
+
+        if (coincideElemento && coincideArma && coincideRareza) {
+            personaje.style.display = 'block';
+        } else {
+            personaje.style.display = 'none';
+        }
+    });
+}
+                                                                                                         
+// Función para aplicar los filtros combinados
+function applyCombinedFilters() {
+    const elementosSeleccionados = Array.from(checkboxes1)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.getAttribute('data-filter'));
+
+    const armasSeleccionadas = Array.from(checkboxes2)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.getAttribute('data-filter'));
+
+    const rarezasSeleccionadas = Array.from(checkboxes3)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.getAttribute('data-filter'));
+
+    const personajes = document.querySelectorAll('.prueba.cursor');
+
+    personajes.forEach(personaje => {
+        const personajeElemento = personaje.getAttribute('data-elemento');
+        const personajeArma = personaje.getAttribute('data-arma');
+        const personajeRareza = personaje.getAttribute('data-rareza');
+
+        const coincideElemento = elementosSeleccionados.length === 0 || elementosSeleccionados.includes(personajeElemento);
+        const coincideArma = armasSeleccionadas.length === 0 || armasSeleccionadas.includes(personajeArma);
+        const coincideRareza = rarezasSeleccionadas.length === 0 || rarezasSeleccionadas.includes(personajeRareza);
+
+        if (coincideElemento && coincideArma && coincideRareza) {
+            personaje.style.display = 'block';
+        } else {
+            personaje.style.display = 'none';
+        }
+    });
+}
+
+// Event listeners para aplicar filtros
+document.getElementById('apply-filters1').addEventListener('click', applyCombinedFilters);
+document.getElementById('apply-filters2').addEventListener('click', applyCombinedFilters);
+document.getElementById('apply-filters3').addEventListener('click', applyCombinedFilters);
+
+// Event listeners para resetear filtros
+document.getElementById('reset-filters1').addEventListener('click', () => {
+    checkboxes1.forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
+});
+document.getElementById('reset-filters2').addEventListener('click', () => {
+    checkboxes2.forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
+});
+document.getElementById('reset-filters3').addEventListener('click', () => {
+    checkboxes3.forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
+});
+

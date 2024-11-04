@@ -79,6 +79,12 @@ body {
   margin-right: 5px;
 }
 
+/* Remover el estilo de enlace y aplicar estilo de botón */
+a.btn {
+  text-decoration: none; /* Quitar subrayado */
+  color: inherit; /* Mantener el color del texto como está */
+}
+
 .btn {
   background: #ff70c3;
   border: none;
@@ -93,6 +99,11 @@ body {
   overflow: hidden;
 }
 
+.btn:hover {
+  background: #6a03df;
+  stroke: #ddfc6c; /* Color amarillo */
+}
+
 .btn svg {
   position: absolute;
   top: 0;
@@ -100,11 +111,6 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0; /* Asegura que el SVG esté debajo del texto */
-}
-
-.btn:hover {
-  background: #6a03df;
-  stroke: #ddfc6c; /* Color amarillo */
 }
 
 .btn span {
