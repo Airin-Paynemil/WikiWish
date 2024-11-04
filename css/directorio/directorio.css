@@ -189,8 +189,9 @@
     z-index: 2;
 }
 
-.barra-direccion{
+.ubicacion{
     display: flex;
+    margin-bottom: 10px;
 }
                                               
 #titulo-info{

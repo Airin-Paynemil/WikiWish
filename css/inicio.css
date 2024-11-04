@@ -4,7 +4,6 @@ body {
   background-repeat: no-repeat;
 }
 
-
 .titulo {
   display: block;
   margin-top: 10%;
@@ -77,9 +76,8 @@ body {
   display: inline-block;
   border-radius: 3px;
   margin-left: 5px;
-  margin-right: 5px
+  margin-right: 5px;
 }
-
 
 .btn {
   background: #ff70c3;
@@ -112,7 +110,6 @@ body {
 .btn span {
   z-index: 1; /* Asegura que el texto esté encima del SVG */
 }
-
 
 .draw-border::before, .draw-border::after {
   border: 0 solid transparent;
@@ -157,5 +154,3 @@ body {
   -webkit-transition-delay: 0s, 0.25s, 0s;
   transition-delay: 0s, 0.25s, 0s;
 }
-
-
