@@ -5,6 +5,7 @@ body {
 }
 
 .titulo {
+  text-align: center;
   display: block;
   margin-top: 10%;
   margin-left: auto;
@@ -19,6 +20,7 @@ body {
   column-gap: 10px;
   row-gap: 30px;
   background: rgba(52, 20, 80, 0.8);
+  border-radius: 55px;
   margin: 8%;
   padding: 2%;
   align-items: center;
