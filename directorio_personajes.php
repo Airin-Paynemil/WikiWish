@@ -24,7 +24,7 @@ exit();
     <div class="nav-bar-pc-fixed"> 
         <div class="nav-bar-pc-bg"></div>
         <div class="nav-bar-pc-logo">
-            <a href="index.html" target="_blank"></a>
+            <a href="index.php" target="_blank"></a>
         </div>
         <div class="nav-buscador">
             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-search-ic-search">
@@ -45,8 +45,8 @@ exit();
         <section class="directorio">
             <div id="dir-titulo">Directorio</div>
                 <nav class="menu">
-                    <a href="directorio_personajes.html" class="menu-button">Personajes</a>
-                    <a href="directorio_armas.html" class="menu-button">Armas</a>
+                    <a href="directorio_personajes.php" class="menu-button">Personajes</a>
+                    <a href="directorio_armas.php" class="menu-button">Armas</a>
                 </nav>
         </section>
     </div>
@@ -55,7 +55,7 @@ exit();
     <div id="division_barra" class="info">
         <nav class="ubicacion">
             <div id="home-link">
-                <a href="index.html"><span>Home</span></a>
+                <a href="index.php"><span>Home</span></a>
             </div>
             <div id="link">
                 <i>/</i>

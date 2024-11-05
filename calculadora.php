@@ -22,7 +22,7 @@ exit();
     <div class="nav-bar-pc-fixed"> 
         <div class="nav-bar-pc-bg"></div>
         <div class="nav-bar-pc-logo">
-            <a href="index.html" target="_blank"></a>
+            <a href="index.php" target="_blank"></a>
         </div>
         <div class="nav-buscador">
             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-search-ic-search">

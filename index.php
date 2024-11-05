@@ -22,7 +22,7 @@ exit();
     <div class="nav-bar-pc-fixed"> 
         <div class="nav-bar-pc-bg"></div>
         <div class="nav-bar-pc-logo">
-            <a href="index.html" target="_blank"></a>
+            <a href="index.php" target="_blank"></a>
         </div>
         <div class="nav-buscador">
             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="nav-search-ic-search">
@@ -51,7 +51,7 @@ exit();
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <a href="http://localhost/Wiki/directorio_personajes.html" class="btn draw-border" id="miBoton1">Personajes</a> <!-- Enlace con estilo de botón -->
+                <a href="http://localhost/Wiki/directorio_personajes.php" class="btn draw-border" id="miBoton1">Personajes</a> <!-- Enlace con estilo de botón -->
             </div>
         </div> 
     
@@ -60,7 +60,7 @@ exit();
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <a href="http://localhost/Wiki/directorio_armas.html" class="btn draw-border" id="miBoton2">Armas</a> <!-- Enlace con estilo de botón -->
+                <a href="http://localhost/Wiki/directorio_armas.php" class="btn draw-border" id="miBoton2">Armas</a> <!-- Enlace con estilo de botón -->
             </div>
         </div>
     
@@ -69,7 +69,7 @@ exit();
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <a href="http://localhost/Wiki/directorio_enemigos.html" class="btn draw-border" id="miBoton3">hola :P</a> <!-- Enlace con estilo de botón -->
+                <a href="http://localhost/Wiki/directorio_enemigos.php" class="btn draw-border" id="miBoton3">hola :P</a> <!-- Enlace con estilo de botón -->
             </div>
         </div>
     
@@ -78,7 +78,7 @@ exit();
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <a href="http://localhost/Wiki/calculadora.html" class="btn draw-border" id="miBoton4">Calculadora de Mejoras</a> <!-- Enlace con estilo de botón -->
+                <a href="http://localhost/Wiki/calculadora.php" class="btn draw-border" id="miBoton4">Calculadora de Mejoras</a> <!-- Enlace con estilo de botón -->
             </div>
         </div>
     
