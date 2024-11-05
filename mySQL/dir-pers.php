@@ -1,4 +1,6 @@
 <?php
+// Al inicio de tus archivos PHP
+session_start();
 $conn = new mysqli("localhost", "root", "", "directorio_personajes"); // Sin contraseña
 
 $id = $_GET['id'] ?? '';

@@ -1,3 +1,13 @@
+<?php 
+session_start(); 
+if (!isset($_SESSION['user_id'])) { 
+    echo 
+    "<script>alert('Por favor, inicie sesión'); 
+    window.location.href = 'http://localhost/Wiki/pantallasInicio/login.html';</script>"; 
+exit(); 
+} 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

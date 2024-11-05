@@ -1,5 +1,5 @@
 document.getElementById("boton1").onclick = function() {
-    window.location.href = "../calculadoraPersonajes.html";
+    window.location.href = "http://localhost/Wiki/calculadoraPersonajes.php";
 };
 
 document.getElementById("boton2").onclick = function() {
