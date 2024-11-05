@@ -29,9 +29,9 @@
 
 #filter-toggle1, #filter-toggle2, #filter-toggle3 {
     width: 250px;
-    background-color: rgb(60, 48, 88);
-    border: rgba(214, 160, 187, 0.9) solid 5px;
-    color: white;
+    background-color: rgb(54, 33, 102);
+    border: rgb(44, 23, 102) solid 2px;
+    color: rgb(194, 187, 75);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -39,15 +39,15 @@
     font-size: 14px;
     margin: 10px 0;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 #filter-options1, #filter-options2, #filter-options3 {
     width: 250px;
     box-sizing: border-box;
     margin-top: 0px;
-    background-color: rgb(60, 48, 88);
-    border: rgba(214, 160, 187, 0.9) solid 5px;
+    background-color: rgb(54, 33, 102);
+    border: rgb(44, 23, 102) solid 2px;
     padding: 15px;
     border-radius: 10px;
     position: absolute;
@@ -66,8 +66,8 @@
 }
 
 .filter-buttons button {
-    background-color: rgb(207, 186, 67);
-    color: rgb(54, 26, 73);
+    background-color: rgb(194, 187, 75);
+    color: rgb(54, 33, 102);
     border: none;
     text-align: center;
     text-decoration: none;
@@ -81,7 +81,7 @@
 
 .filter-buttons button:last-child {
     color: rgb(207, 186, 67);
-    background-color: #1c1036;
+    background-color: rgb(32, 18, 65);
     font-size: 12px;
 }
 
@@ -93,6 +93,18 @@
     width: 100%;
     padding: 2px;
     cursor: pointer;
+    font-size: 14px;
+    font-family: "fuenteFiltro";
+    color: rgb(25, 13, 53);
+}
+
+.label-container:hover {
+    background-color: rgba(207, 186, 67, 0.1);
+    color: rgb(207, 186, 67);
+}
+
+.label-container:hover input[type="checkbox"] {
+    border-color: rgb(207, 186, 67);
 }
 
 label {
@@ -107,7 +119,7 @@ input[type="checkbox"] {
     appearance: none;
     width: 20px;
     height: 20px;
-    border: 2px solid #4CAF50;
+    border: 2px solid rgb(32, 18, 65);
     border-radius: 4px;
     cursor: pointer;
     outline: none;
@@ -117,13 +129,14 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-    background-color: #b9a5ff;
-    border-color: #af4c4c;
+    background-color: rgb(54, 33, 102);
+    border-color: rgb(207, 186, 67);
 }
 
 input[type="checkbox"]:checked::after {
     content: '✔';
-    color: white;
+    color: rgb(207, 186, 67);
     font-size: 16px;
 }
+
 

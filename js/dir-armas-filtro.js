@@ -90,3 +90,57 @@ function resetFilters3() {
     });
     updateSelectedOptions3();
 }
+
+
+// Función para aplicar los filtros combinados
+// Función para aplicar los filtros combinados a las armas
+function applyCombinedFilters() {
+    const atributosSeleccionados = Array.from(document.querySelectorAll('#filter-options1 input[type="checkbox"]'))
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    const tiposDeArmaSeleccionados = Array.from(document.querySelectorAll('#filter-options2 input[type="checkbox"]'))
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    const calidadesSeleccionadas = Array.from(document.querySelectorAll('#filter-options3 input[type="checkbox"]'))
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    const armas = document.querySelectorAll('.prueba.cursor');
+
+    armas.forEach(arma => {
+        const armaAtributo = arma.getAttribute('data-atributo');
+        const armaTipo = arma.getAttribute('data-arma');
+        const armaCalidad = arma.getAttribute('data-calidad');
+
+        const coincideAtributo = atributosSeleccionados.length === 0 || atributosSeleccionados.includes(armaAtributo);
+        const coincideTipo = tiposDeArmaSeleccionados.length === 0 || tiposDeArmaSeleccionados.includes(armaTipo);
+        const coincideCalidad = calidadesSeleccionadas.length === 0 || calidadesSeleccionadas.includes(armaCalidad);
+
+        if (coincideAtributo && coincideTipo && coincideCalidad) {
+            arma.style.display = 'block';
+        } else {
+            arma.style.display = 'none';
+        }
+    });
+}
+
+// Event listeners para aplicar filtros
+document.getElementById('apply-filters1').addEventListener('click', applyCombinedFilters);
+document.getElementById('apply-filters2').addEventListener('click', applyCombinedFilters);
+document.getElementById('apply-filters3').addEventListener('click', applyCombinedFilters);
+
+// Event listeners para resetear filtros
+document.getElementById('reset-filters1').addEventListener('click', () => {
+    document.querySelectorAll('#filter-options1 input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
+});
+document.getElementById('reset-filters2').addEventListener('click', () => {
+    document.querySelectorAll('#filter-options2 input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
+});
+document.getElementById('reset-filters3').addEventListener('click', () => {
+    document.querySelectorAll('#filter-options3 input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
+});

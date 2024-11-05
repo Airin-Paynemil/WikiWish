@@ -4,7 +4,7 @@
 }
 
 .directorio{
-    background-color: rgb(60, 26, 92);
+    background-color: rgb(54, 33, 102); 
     position: fixed;
     height: 100%;
     width: 300px; 
@@ -12,7 +12,8 @@
 }
 
 #dir-titulo{
-    font-size: 30px;
+    font-size: 35px;
+    color: rgb(189, 175, 95);
     font-family: 'Inknut';
     src: url(/fuentes/InknutAntiqua-ExtraBold.ttf);
     font-weight: bold;
@@ -29,81 +30,22 @@
 
 
 .menu-button{
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'Inknut';
     src: url(/fuentes/InknutAntiqua-Light.ttf);
     font-style: bold;
     margin: 5px 10px;
     padding: 20px 0px;
-    color: rgb(197, 195, 86);
+    color: rgb(54, 33, 102);
     text-decoration: none;
-    background-color: rgb(42, 33, 80);
+    background-color: rgb(177, 164, 91);
     border-radius: 10px;;
     cursor: pointer;
 }
 
 .menu-button:hover {
-    background: transparent;
-    color: #fec195;
-    box-shadow: 0 0 25px #fec1958c;
+    background: rgba(106, 3, 138, 0.1);
+    color: #fee295;
+    box-shadow: 0 0 25px #c23bc78c;
 }
 
-.menu-button:hover .star-1 {
-    position: absolute;
-    top: -80%;
-    left: -30%;
-    width: 25px;
-    height: auto;
-    filter: drop-shadow(0 0 10px #fffdef);
-    z-index: 2;
-}
-
-.menu-button:hover .star-2 {
-    position: absolute;
-    top: -25%;
-    left: 10%;
-    width: 15px;
-    height: auto;
-    filter: drop-shadow(0 0 10px #fffdef);
-    z-index: 2;
-}
-
-.menu-button:hover .star-3 {
-    position: absolute;
-    top: 55%;
-    left: 25%;
-    width: 5px;
-    height: auto;
-    filter: drop-shadow(0 0 10px #fffdef);
-    z-index: 2;
-}
-  
-.menu-button:hover .star-4 {
-    position: absolute;
-    top: 30%;
-    left: 80%;
-    width: 8px;
-    height: auto;
-    filter: drop-shadow(0 0 10px #fffdef);
-    z-index: 2;
-}
-  
-.menu-button:hover .star-5 {
-    position: absolute;
-    top: 25%;
-    left: 115%;
-    width: 15px;
-    height: auto;
-    filter: drop-shadow(0 0 10px #fffdef);
-    z-index: 2;
-}
-  
-.menubutton:hover .star-6 {
-    position: absolute;
-    top: 5%;
-    left: 60%;
-    width: 5px;
-    height: auto;
-    filter: drop-shadow(0 0 10px #fffdef);
-    z-index: 2;
-}

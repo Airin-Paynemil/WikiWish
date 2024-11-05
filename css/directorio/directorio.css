@@ -17,16 +17,23 @@
 
 }
 
-#link{/*REVISAR*/
+#link {
     font-family: 'Inknut';
     src: url(../fuentes/InknutAntiqua-Light.ttf);
 }
 
-#home-link{
-    text-decoration: none;
+#home-link {
+    color: rgb(233, 196, 32);
     font-family: 'Inknut';
     src: url(/fuentes/InknutAntiqua-Light.ttf);
 }
+
+#home-link a {
+    text-decoration: none; /* Quitar subrayado */
+    color: inherit; /* Mantener el color de texto como está */
+}
+
+
 
 .info {
     position: relative; /* Necesario para posicionar la capa superpuesta */
@@ -74,7 +81,7 @@
 .prueba {
     overflow: hidden;
     border-radius: 10px;
-    background-color: rgba(214, 160, 187, 0.9);
+    background-color: rgba(55, 29, 92, 0.9);
     display: flex;
     width: 48%;
     height: 150px;
@@ -82,30 +89,41 @@
     align-items: center;
 }
 
-.contenedor-info{
+.contenedor-info {
     display: flex;
+    align-items: center; /* Centra verticalmente */
 }
 
 .icono-info {
+    background: rgb(226, 206, 115);
     border-radius: 10px;
-    border: rgb(109, 0, 131) 5px solid;
+    border: rgb(44, 23, 102) 1px solid;
     width: 100px;
     height: 100px;
-    position: relative;
-    margin: 10px 10px 10px 25px;
-    align-self: center;
+    margin: 0 10px 0 25px; /* Ajusta este valor para mover el icono a la izquierda */
+    align-self: center; /* Asegura que la imagen esté centrada verticalmente */
     z-index: 1;
-     /* Ajusta este valor para mover el icono a la izquierda */
 }
 
+
 .info-arma{
-    margin: 10px 15px 10px 10px;
+    margin: 5px 15px 10px 10px;
 }
 
 .nombre{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 0px 0px 5px 0px;
+    text-align: left;
+    color: rgb(197, 174, 72);
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: medium;
 
+}
+
+.descripcion{
+    text-align: left;
+    color: rgb(164, 131, 201);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
 }
 
 .rareza {
@@ -113,7 +131,7 @@
     align-items: center;
     vertical-align: middle;
     margin-left: 5px;
-    color: rgb(138, 13, 131); /* Puedes cambiar el color según prefieras */
+    color: rgb(197, 174, 72); /* Puedes cambiar el color según prefieras */
 }
 
 .rareza svg {

@@ -116,25 +116,27 @@ input[type="search"]:-webkit-autofill:active {
 
 /* Estilos para la barra desplegable */
 .dropdown-menu {
-    display: none;
+    display: none; 
     text-align: center;
     position: absolute;
     top: 50px; /* Ajusta según sea necesario */
     right: 10px; /* Ajusta según sea necesario */
     width: 120px;
     height: 35px;
-    background-color: #fff;
+    background-color: rgb(52, 48, 88);
+    border: rgb(25, 9, 68) 2px solid;
     padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(151, 77, 135, 0.9);
     z-index: 1000;
     border-radius: 10px; /* Añadir un poco de curvatura */
 }
 .dropdown-menu a {
     text-decoration: none;
-    color: #333;
+    color: rgb(197, 184, 99);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: block;
     padding: 5px 10px;
 }
-.dropdown-menu a:hover {
-    background-color: #f0f0f0;
+.dropdown-menu:hover{
+    background-color: rgba(21, 0, 44, 0.925);
 }
