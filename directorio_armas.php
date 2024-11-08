@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 exit(); 
 } 
 ?>
+<?php include "mySQL/dir-armas-consult.php"; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,6 +48,7 @@ exit();
                 <nav class="menu">
                     <a href="directorio_personajes.php" class="menu-button">Personajes</a>
                     <a href="directorio_armas.php" class="menu-button">Armas</a>
+                    <a href="directorio_agregar.php" class="menu-button">+ Agregar</a>
                 </nav>
         </section>
     </div>
@@ -78,17 +80,17 @@ exit();
                 <div id="filter-options3" class="hidden">
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option3-5">5 Estrellas</label>
-                        <input type="checkbox" id="option3-1" data-filter="5 estrellas">
+                        <input type="checkbox" id="option3-1" value="5">
                     </div>
 
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option3-4">4 Estrellas</label>
-                        <input type="checkbox" id="option3-2" data-filter="4 estrellas">
+                        <input type="checkbox" id="option3-2" value="4">
                     </div>
 
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option3-3">3 Estrellas</label>
-                        <input type="checkbox" id="option3-2" data-filter="3 estrellas">
+                        <input type="checkbox" id="option3-2" value="3">
                     </div>
 
                     <div class="filter-buttons">
@@ -140,23 +142,23 @@ exit();
                 <div id="filter-options2" class="hidden">
                   <div class="label-container" onclick="toggleCheckbox(this)">
                       <label for="option2-1">Mandoble</label>
-                      <input type="checkbox" id="option2-1" data-filter="mandoble">
+                      <input type="checkbox" id="option2-1" value="mandoble">
                     </div>
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option2-2">Arco</label>
-                        <input type="checkbox" id="option2-2" data-filter="arco">
+                        <input type="checkbox" id="option2-2" value="arco">
                     </div>
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option2-3">Catalizador</label>
-                        <input type="checkbox" id="option2-3" data-filter="catalizador">
+                        <input type="checkbox" id="option2-3" value="catalizador">
                     </div>
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option2-4">Espada</label>
-                        <input type="checkbox" id="option2-4" data-filter="espada">
+                        <input type="checkbox" id="option2-4" value="espada">
                     </div>
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option2-5">Lanza</label>
-                        <input type="checkbox" id="option2-5" data-filter="lanza">
+                        <input type="checkbox" id="option2-5" value="lanza">
                     </div>
                     <div class="filter-buttons">
                     <button id="apply-filters2">Aceptar</button>
@@ -169,98 +171,36 @@ exit();
           
 
         <!--ARMAS-->
-        <div id="armas-contenedor" class="armas-contenedor">
-            <div class="prueba cursor" data-atributo="recarga" data-arma="espada" data-calidad="4 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/armas/favonius.webp" class="icono-info"/>
-                  <div class="info-arma">
-                        <p class="nombre">Espada de Favonius
-                            <span class="rareza">
-                                4
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <!-- Contenedor info -->
+        <div class="armas-contenedor">
+            <?php
+
+            // Verificar si la consulta retornó resultados
+            if ($result_DA) {
+                // Recorrer los resultados y mostrarlos
+                while ($row_DA = $result_DA->fetch_assoc()) {
+                    echo '<div class="prueba cursor" data-atributo="' . $row_DA['atrib-secundario_DA'] . '" data-arma="' . $row_DA['tipo_DA'] . '" data-calidad="' . $row_DA['calidad_DA'] . '">';
+                    echo '<div class="contenedor-info">';
+                    echo '<img src="' . $row_DA['imagenURL_DA'] . '" class="icono-info"/>';
+                    echo '<div class="info-arma">';
+                    echo '<p class="nombre">' . $row_DA['nombre_DA'] . '
+                            <span class="rareza">' . $row_DA['calidad_DA'] . '
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                                <path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                            </svg>
                             </span>
-                        </p>
-                        <p class="descripcion">Una espada larga estándar de los Caballeros de Favonius. ¡Canalizar el poder de los elementos nunca fue tan fácil como con esta espada!.</p>
-                  </div>
-              </div>
-            </div>
-
-            <div class="prueba cursor" data-atributo="prob.crit" data-arma="lanza" data-calidad="3 estrellas">
-              <div class="contenedor-info">
-                  <img src="imagenes/armas/borlablanca.webp" class="icono-info"/>
-                <div class="info-arma">
-                      <p class="nombre">Espada de Favonius
-                          <span class="rareza">
-                              3
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                          </span>
-                      </p>
-                      <p class="descripcion">Un arma estándar de la Geoarmada. Tiene un eje firme y una punta de lanza afilada. Es un arma muy fiable.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="prueba cursor" data-atributo="daño.crit" data-arma="catalizador" data-calidad="5 estrellas">
-              <div class="contenedor-info">
-                  <img src="imagenes/armas/tula.webp" class="icono-info"/>
-                <div class="info-arma">
-                      <p class="nombre">Reminiscencia de Tulaytulah
-                          <span class="rareza">
-                              5
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                          </span>
-                      </p>
-                      <p class="descripcion">Una campana hecha de zafiro y plata pura. Su lejana reverberación es, paradójicamente, muy nítida.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="prueba cursor" data-atributo="ataque" data-arma="mandoble" data-calidad="4 estrellas">
-              <div class="contenedor-info">
-                  <img src="imagenes/armas/prototipo.webp" class="icono-info"/>
-                <div class="info-arma">
-                      <p class="nombre">Prototipo Arcaico
-                          <span class="rareza">
-                              4
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                          </span>
-                      </p>
-                      <p class="descripcion">Una gran espada descubierta en la Forja Peñasco Oscuro. Al blandirla, tiene tal poder que uno puede sentir como si pudiera cortar a través del espacio.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="prueba cursor" data-atributo="prob.crit" data-arma="mandoble" data-calidad="4 estrellas">
-              <div class="contenedor-info">
-                  <img src="imagenes/armas/garrote.webp" class="icono-info"/>
-                <div class="info-arma">
-                      <p class="nombre">Garrote del Dialogo
-                          <span class="rareza">
-                              4
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                          </span>
-                      </p>
-                      <p class="descripcion">Una gran maza con incrustaciones de obsidiana y un excelente poder de persuasión.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="prueba cursor" data-atributo="vida" data-arma="arco" data-calidad="4 estrellas">
-              <div class="contenedor-info">
-                  <img src="imagenes/armas/corazon.webp" class="icono-info"/>
-                <div class="info-arma">
-                      <p class="nombre">Corazon de la Lluvia
-                          <span class="rareza">
-                              5
-                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                          </span>
-                      </p>
-                      <p class="descripcion">Ya sea en un escenario o un campo de batalla, la música que produce conmueve fácilmente el corazón de quien la escucha.</p>
-                </div>
-              </div>
-            </div>
-            
+                        </p>';
+                    echo '<p class="descripcion">' . $row_DA['descripcion_DA'] . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "No se encontraron armas.";
+            }
+            ?>
         </div>
+
 
     </div>
 

@@ -1,13 +1,3 @@
-<?php 
-session_start(); 
-if (!isset($_SESSION['user_id'])) { 
-    echo 
-    "<script>alert('Por favor, inicie sesión'); 
-    window.location.href = 'http://localhost/Wiki/pantallasInicio/login.html';</script>"; 
-exit(); 
-} 
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +8,7 @@ exit();
     <title>WikiWish</title>
 </head>
 <body>
-    <!----Esto es la barra de arriba---->
+    <!-- Barra de arriba -->
     <div class="nav-bar-pc-fixed"> 
         <div class="nav-bar-pc-bg"></div>
         <div class="nav-bar-pc-logo">
@@ -38,10 +28,10 @@ exit();
         </div>
     </div>
 
-    <!-----ESTO ES LA PANTALLA------->
+    <!-- Pantalla Principal -->
     <header>
         <div class="titulo">
-            <img src="/imagenes/titulo.png" alt="titulo" />
+            <img src="http://localhost/Wiki/imagenes/titulo.png" alt="titulo" />
         </div>
     </header>
 
@@ -51,7 +41,7 @@ exit();
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <a href="http://localhost/Wiki/directorio_personajes.php" class="btn draw-border" id="miBoton1">Personajes</a> <!-- Enlace con estilo de botón -->
+                <div class="btn draw-border" id="miBoton1">Personajes</div>
             </div>
         </div> 
     
@@ -60,7 +50,7 @@ exit();
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <a href="http://localhost/Wiki/directorio_armas.php" class="btn draw-border" id="miBoton2">Armas</a> <!-- Enlace con estilo de botón -->
+                <div class="btn draw-border" id="miBoton2">Armas</div>
             </div>
         </div>
     
@@ -69,7 +59,7 @@ exit();
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <a href="http://localhost/Wiki/directorio_enemigos.php" class="btn draw-border" id="miBoton3">hola :P</a> <!-- Enlace con estilo de botón -->
+                <div class="btn draw-border" id="miBoton3">hola :P</div>
             </div>
         </div>
     
@@ -78,14 +68,12 @@ exit();
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <a href="http://localhost/Wiki/calculadora.php" class="btn draw-border" id="miBoton4">Calculadora de Mejoras</a> <!-- Enlace con estilo de botón -->
+                <div class="btn draw-border" id="miBoton4">Calculadora de Mejoras</div>
             </div>
         </div>
-    
-        
     </nav>    
 
     <script src="js/barraArriba.js"></script>
-    <!--<script src="js/index-enlases.js"></script>-->
+    <script src="js/index-enlases.js"></script>
 </body>
 </html>

@@ -126,37 +126,39 @@ function applyCombinedFilters() {
 }
                                                                                                          
 // Función para aplicar los filtros combinados
+// Función para aplicar los filtros combinados a las armas
 function applyCombinedFilters() {
-    const elementosSeleccionados = Array.from(checkboxes1)
+    const atributosSeleccionados = Array.from(document.querySelectorAll('#filter-options1 input[type="checkbox"]'))
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    const tiposDeArmaSeleccionados = Array.from(document.querySelectorAll('#filter-options2 input[type="checkbox"]'))
         .filter(checkbox => checkbox.checked)
         .map(checkbox => checkbox.getAttribute('data-filter'));
 
-    const armasSeleccionadas = Array.from(checkboxes2)
+    const calidadesSeleccionadas = Array.from(document.querySelectorAll('#filter-options3 input[type="checkbox"]'))
         .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.getAttribute('data-filter'));
+        .map(checkbox => checkbox.getAttribute('data-filter') + ' estrellas'); // Añadimos " estrellas" para coincidencia
 
-    const rarezasSeleccionadas = Array.from(checkboxes3)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.getAttribute('data-filter'));
+    const armas = document.querySelectorAll('.prueba.cursor');
 
-    const personajes = document.querySelectorAll('.prueba.cursor');
+    armas.forEach(arma => {
+        const armaAtributo = arma.getAttribute('data-atributo');
+        const armaTipo = arma.getAttribute('data-arma');
+        const armaCalidad = arma.getAttribute('data-calidad');
 
-    personajes.forEach(personaje => {
-        const personajeElemento = personaje.getAttribute('data-elemento');
-        const personajeArma = personaje.getAttribute('data-arma');
-        const personajeRareza = personaje.getAttribute('data-rareza');
+        const coincideAtributo = atributosSeleccionados.length === 0 || atributosSeleccionados.includes(armaAtributo);
+        const coincideTipo = tiposDeArmaSeleccionados.length === 0 || tiposDeArmaSeleccionados.includes(armaTipo);
+        const coincideCalidad = calidadesSeleccionadas.length === 0 || calidadesSeleccionadas.includes(armaCalidad);
 
-        const coincideElemento = elementosSeleccionados.length === 0 || elementosSeleccionados.includes(personajeElemento);
-        const coincideArma = armasSeleccionadas.length === 0 || armasSeleccionadas.includes(personajeArma);
-        const coincideRareza = rarezasSeleccionadas.length === 0 || rarezasSeleccionadas.includes(personajeRareza);
-
-        if (coincideElemento && coincideArma && coincideRareza) {
-            personaje.style.display = 'block';
+        if (coincideAtributo && coincideTipo && coincideCalidad) {
+            arma.style.display = 'block';
         } else {
-            personaje.style.display = 'none';
+            arma.style.display = 'none';
         }
     });
 }
+
 
 // Event listeners para aplicar filtros
 document.getElementById('apply-filters1').addEventListener('click', applyCombinedFilters);

@@ -5,22 +5,11 @@ document.getElementById('filter-toggle1').addEventListener('click', function() {
 });
 
 const checkboxes1 = document.querySelectorAll('#filter-options1 input[type="checkbox"]');
-document.getElementById('apply-filters1').addEventListener('click', updateSelectedOptions1);
-document.getElementById('reset-filters1').addEventListener('click', resetFilters1);
-
-function updateSelectedOptions1() {
-    const selectedValues1 = Array.from(checkboxes1)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-    //selectedOptionsDiv.textContent = 'Seleccionadas: ' + selectedValues1.join(', ');
-}
-
-function resetFilters1() {
-    checkboxes1.forEach(checkbox => {
-        checkbox.checked = false;
-    });
-    updateSelectedOptions1();
-}
+document.getElementById('apply-filters1').addEventListener('click', applyCombinedFilters);
+document.getElementById('reset-filters1').addEventListener('click', () => {
+    checkboxes1.forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
+});
 
 // Filtro 2
 document.getElementById('filter-toggle2').addEventListener('click', function() {
@@ -29,42 +18,10 @@ document.getElementById('filter-toggle2').addEventListener('click', function() {
 });
 
 const checkboxes2 = document.querySelectorAll('#filter-options2 input[type="checkbox"]');
-document.getElementById('apply-filters2').addEventListener('click', updateSelectedOptions2);
-document.getElementById('reset-filters2').addEventListener('click', resetFilters2);
-
-function updateSelectedOptions2() {
-    const selectedValues2 = Array.from(checkboxes2)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-    //selectedOptionsDiv.textContent = 'Seleccionadas: ' + selectedValues2.join(', ');
-}
-
-function resetFilters2() {
-    checkboxes2.forEach(checkbox => {
-        checkbox.checked = false;
-    });
-    updateSelectedOptions2();
-}
-
-// Función para alternar el estado del checkbox
-function toggleCheckbox(element) {
-    const checkbox = element.querySelector('input[type="checkbox"]');
-    checkbox.checked = !checkbox.checked;
-}
-
-// Añadir evento a los contenedores
-document.querySelectorAll('.label-container').forEach(container => {
-    container.addEventListener('click', function(e) {
-        const checkbox = this.querySelector('input[type="checkbox"]');
-        checkbox.checked = !checkbox.checked; // Cambia el estado del checkbox
-    });
-});
-
-// Añadir evento directamente a los checkboxes para que no propaguen el evento
-document.querySelectorAll('.label-container input[type="checkbox"]').forEach(checkbox => {
-    checkbox.addEventListener('click', function(e) {
-        e.stopPropagation(); // Evita que el click se propague al contenedor
-    });
+document.getElementById('apply-filters2').addEventListener('click', applyCombinedFilters);
+document.getElementById('reset-filters2').addEventListener('click', () => {
+    checkboxes2.forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
 });
 
 // Filtro 3
@@ -74,36 +31,36 @@ document.getElementById('filter-toggle3').addEventListener('click', function() {
 });
 
 const checkboxes3 = document.querySelectorAll('#filter-options3 input[type="checkbox"]');
-document.getElementById('apply-filters3').addEventListener('click', updateSelectedOptions3);
-document.getElementById('reset-filters3').addEventListener('click', resetFilters3);
+document.getElementById('apply-filters3').addEventListener('click', applyCombinedFilters);
+document.getElementById('reset-filters3').addEventListener('click', () => {
+    checkboxes3.forEach(checkbox => checkbox.checked = false);
+    applyCombinedFilters();
+});
 
-function updateSelectedOptions3() {
-    const selectedValues3 = Array.from(checkboxes3)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-    //selectedOptionsDiv.textContent = 'Seleccionadas: ' + selectedValues3.join(', ');
+// Función para alternar el estado del checkbox
+function toggleCheckbox(element) {
+    const checkbox = element.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
 }
 
-function resetFilters3() {
-    checkboxes3.forEach(checkbox => {
-        checkbox.checked = false;
+// Añadir evento a los contenedores para alternar el checkbox
+document.querySelectorAll('.label-container').forEach(container => {
+    container.addEventListener('click', function(e) {
+        toggleCheckbox(this);
     });
-    updateSelectedOptions3();
-}
+});
 
-
-// Función para aplicar los filtros combinados
 // Función para aplicar los filtros combinados a las armas
 function applyCombinedFilters() {
-    const atributosSeleccionados = Array.from(document.querySelectorAll('#filter-options1 input[type="checkbox"]'))
+    const atributosSeleccionados = Array.from(checkboxes1)
         .filter(checkbox => checkbox.checked)
         .map(checkbox => checkbox.value);
 
-    const tiposDeArmaSeleccionados = Array.from(document.querySelectorAll('#filter-options2 input[type="checkbox"]'))
+    const tiposDeArmaSeleccionados = Array.from(checkboxes2)
         .filter(checkbox => checkbox.checked)
         .map(checkbox => checkbox.value);
 
-    const calidadesSeleccionadas = Array.from(document.querySelectorAll('#filter-options3 input[type="checkbox"]'))
+    const calidadesSeleccionadas = Array.from(checkboxes3)
         .filter(checkbox => checkbox.checked)
         .map(checkbox => checkbox.value);
 
@@ -118,29 +75,24 @@ function applyCombinedFilters() {
         const coincideTipo = tiposDeArmaSeleccionados.length === 0 || tiposDeArmaSeleccionados.includes(armaTipo);
         const coincideCalidad = calidadesSeleccionadas.length === 0 || calidadesSeleccionadas.includes(armaCalidad);
 
-        if (coincideAtributo && coincideTipo && coincideCalidad) {
-            arma.style.display = 'block';
-        } else {
-            arma.style.display = 'none';
-        }
+        arma.style.display = coincideAtributo && coincideTipo && coincideCalidad ? 'block' : 'none';
     });
 }
 
-// Event listeners para aplicar filtros
+// Event listeners para aplicar filtros y resetear filtros en cada sección
 document.getElementById('apply-filters1').addEventListener('click', applyCombinedFilters);
 document.getElementById('apply-filters2').addEventListener('click', applyCombinedFilters);
 document.getElementById('apply-filters3').addEventListener('click', applyCombinedFilters);
 
-// Event listeners para resetear filtros
 document.getElementById('reset-filters1').addEventListener('click', () => {
-    document.querySelectorAll('#filter-options1 input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    checkboxes1.forEach(checkbox => checkbox.checked = false);
     applyCombinedFilters();
 });
 document.getElementById('reset-filters2').addEventListener('click', () => {
-    document.querySelectorAll('#filter-options2 input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    checkboxes2.forEach(checkbox => checkbox.checked = false);
     applyCombinedFilters();
 });
 document.getElementById('reset-filters3').addEventListener('click', () => {
-    document.querySelectorAll('#filter-options3 input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+    checkboxes3.forEach(checkbox => checkbox.checked = false);
     applyCombinedFilters();
 });

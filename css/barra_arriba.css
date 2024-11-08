@@ -40,7 +40,7 @@
 }
 
 .nav-bar-pc-logo {
-    background: url(/imagenes/logo.png) no-repeat 50%/contain;
+    background: url("http://localhost/Wiki/imagenes/logo.png") no-repeat 50%/contain;
     display: block;
     height: 75px;
     width: 114px;

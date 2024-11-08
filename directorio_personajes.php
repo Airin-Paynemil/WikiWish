@@ -8,6 +8,8 @@ exit();
 } 
 ?>
 
+<?php include 'mySQL/dir-pers-consult.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +49,7 @@ exit();
                 <nav class="menu">
                     <a href="directorio_personajes.php" class="menu-button">Personajes</a>
                     <a href="directorio_armas.php" class="menu-button">Armas</a>
+                    <a href="directorio_agregar.php" class="menu-button">+ Agregar</a>
                 </nav>
         </section>
     </div>
@@ -76,21 +79,22 @@ exit();
                 <div class="filter-container">
                     <button id="filter-toggle3">Seleccionar Opciones</button>
                     <div id="filter-options3" class="hidden">
-                    <div class="label-container" onclick="toggleCheckbox(this)">
-                        <label for="option3-1">5 Estrellas</label>
-                        <input type="checkbox" id="option3-1" data-filter="5 estrellas">
-                    </div>
-                    <div class="label-container" onclick="toggleCheckbox(this)">
-                        <label for="option3-2">4 Estrellas</label>
-                        <input type="checkbox" id="option3-2" data-filter="4 estrellas">
-                    </div>
+                        <div class="label-container" onclick="toggleCheckbox(this)">
+                            <label for="option3-1">5 estrellas</label> <!-- Cambiado de "5 Estrellas" a "5" -->
+                            <input type="checkbox" id="option3-1" data-filter="5">
+                        </div>
+                        <div class="label-container" onclick="toggleCheckbox(this)">
+                            <label for="option3-2">4 estrellas</label> <!-- Cambiado de "4 Estrellas" a "4" -->
+                            <input type="checkbox" id="option3-2" data-filter="4">
+                        </div>
 
-                    <div class="filter-buttons">
-                        <button id="apply-filters3">Aceptar</button>
-                        <button id="reset-filters3">Restablecer</button>
-                    </div>
+                        <div class="filter-buttons">
+                            <button id="apply-filters3">Aceptar</button>
+                            <button id="reset-filters3">Restablecer</button>
+                        </div>
                     </div>
                 </div>
+
             </div>
             <div class="contenedor-filtros">
                 <div class="filtro">
@@ -165,226 +169,37 @@ exit();
             </div>
         </div>
         <!-- Contenedor info -->
-        <div id="armas-contenedor" class="armas-contenedor">
-            <div class="prueba cursor" data-elemento="dendro" data-arma="mandoble" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/kinich.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Kinich 
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+        <div class="armas-contenedor">
+            <?php
+            // Verificar si la consulta retornó resultados
+            if ($result_DP) {
+                // Recorrer los resultados y mostrarlos
+                while ($row_DP = $result_DP->fetch_assoc()) {
+                    echo '<div class="prueba cursor" data-elemento="' . $row_DP['elemento_DP'] . '" data-arma="' . $row_DP['arma_DP'] . '" data-rareza="' . $row_DP['rareza_DP'] . '">';
+                    echo '<div class="contenedor-info">';
+                    echo '<img src="' . $row_DP['imagenURL_DP'] . '" class="icono-info"/>';
+                    echo '<div class="info-arma">';
+                    echo '<p class="nombre">' . $row_DP['nombre_DP'] . ' 
+                            <span class="rareza">' . $row_DP['rareza_DP'] . '
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                             </span>
-                        </p>
-                        <p class="descripcion">Un cazasaurios de Huitztlán experto en calcular el precio de las cosas.</p>
-                    </div>
-                </div>
-            </div>
-            
-            
-
-            <div class="prueba cursor" data-elemento="anemo" data-arma="arco" data-rareza="4 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/faruzan.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Faruzan 
-                            <span class="rareza">
-                                4
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">Una erudita “con cien años de antigüedad” a la que le encanta recalcar que tiene más experiencia que los demás.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="pyro" data-arma="mandoble" data-rareza="4 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/gaming.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Gaming 
-                            <span class="rareza">
-                                4
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">Escolta de la Agencia de Transporte Seguro Cofrespada y líder del grupo Bestias Místicas Poderosas.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="electro" data-arma="lanza" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/shougun.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Raiden Shogun 
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">Su Excelencia, la todopoderosa Narukami, quien le prometió al pueblo de Inazuma la inmutable eternidad.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="cryo" data-arma="catalizador" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/wriothesley.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Wriothesley
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">El duque del Fuerte Merópide y gobernante oculto del oscuro fondo marino.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="prueba cursor" data-elemento="geo" data-arma="mandoble" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/navia.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Navia
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">La actual presidenta de Spina di Rosula, una jefa adorable.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="prueba cursor" data-elemento="anemo" data-arma="espada" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/kazuha.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Kaedehara Kazuha
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">Un samurái errante de Inazuma que actualmente se hospeda en la Flota Crux Meridianam de Liyue.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="prueba cursor" data-elemento="geo" data-arma="lanza" data-rareza="4 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/kachina.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Kachina
-                            <span class="rareza">
-                                4
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">Una joven guerrera de Nanatzcayan agraciada con el nombre antiguo de “Uthabiti”.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="pyro" data-arma="arco" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/yoimiya.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Yoimiya
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">La dueña de la tienda Pirotecnia Naganohara y Reina del Festival de Verano.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="cryo" data-arma="mandoble" data-rareza="4 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/chongyun.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Chongyun
-                            <span class="rareza">
-                                4
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">Un joven exorcista procedente de una familia de exorcistas. Hace todo lo que puede para reprimir su propia “positividad congénita”.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="hydro" data-arma="espada" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/furina.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Furina
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">El foco de atención absoluto del escenario durante los juicios, hasta que la obra termina y el público rompe a aplaudir.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="electro" data-arma="arco" data-rareza="4 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/sethos.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Sethos
-                            <span class="rareza">
-                                4
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">El heredero del Templo del Silencio. Portador de secretos y procedente del desierto.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="dendro" data-arma="catalizador" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/nahida.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Nahida
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">Un pajarito enjaulado en el Santuario Surasthana que solo puede contemplar el mundo desde sus sueños.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="prueba cursor" data-elemento="hydro" data-arma="catalizador" data-rareza="5 estrellas">
-                <div class="contenedor-info">
-                    <img src="imagenes/personajes/mualani.webp" class="icono-info"/>
-                    <div class="info-arma">
-                        <p class="nombre">Mualani
-                            <span class="rareza">
-                                5
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>
-                        <p class="descripcion">	Una guía de Natlan muy famosa que lleva una tienda de suministros acuáticos.</p>
-                    </div>
-                </div>
-            </div>
-            
+                        </p>';
+                    echo '<p class="descripcion">' . $row_DP['descripcion_DP'] . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo "No se encontraron personajes.";
+            }
+            ?>
         </div>
-        
-        
-        
+
+
     </div>
 
     <script src="js/barraArriba.js"></script>
     <script src="js/dir-pers-filtro.js"></script>
 </body>
 </html>
+
