@@ -1,181 +1,73 @@
-// Filtro 1
-document.getElementById('filter-toggle1').addEventListener('click', function() {
-    const options = document.getElementById('filter-options1');
-    options.classList.toggle('hidden');
+// Función para mostrar/ocultar opciones de filtro y cerrar los demás
+function toggleFilterOptions(activeOption) {
+    const filterOptions = ["filter-options1", "filter-options2", "filter-options3"];
+
+    filterOptions.forEach(option => {
+        const element = document.getElementById(option);
+        if (option === activeOption) {
+            element.classList.toggle("hidden");
+        } else {
+            element.classList.add("hidden");
+        }
+    });
+}
+
+// Event listeners para los botones de filtro
+document.getElementById("filter-toggle1").addEventListener("click", () => {
+    toggleFilterOptions("filter-options1");
+});
+document.getElementById("filter-toggle2").addEventListener("click", () => {
+    toggleFilterOptions("filter-options2");
+});
+document.getElementById("filter-toggle3").addEventListener("click", () => {
+    toggleFilterOptions("filter-options3");
 });
 
-const checkboxes1 = document.querySelectorAll('#filter-options1 input[type="checkbox"]');
-document.getElementById('apply-filters1').addEventListener('click', updateSelectedOptions1);
-document.getElementById('reset-filters1').addEventListener('click', resetFilters1);
+// Aplica los filtros al contenedor de personajes
+function applyFilters() {
+    const selectedElements = Array.from(document.querySelectorAll("#filter-options1 input:checked")).map(cb => cb.dataset.filter);
+    const selectedWeapons = Array.from(document.querySelectorAll("#filter-options2 input:checked")).map(cb => cb.dataset.filter);
+    const selectedRarities = Array.from(document.querySelectorAll("#filter-options3 input:checked")).map(cb => cb.dataset.filter);
 
-function updateSelectedOptions1() {
-    const selectedValues1 = Array.from(checkboxes1)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-    //selectedOptionsDiv.textContent = 'Seleccionadas: ' + selectedValues1.join(', ');
+    const items = document.querySelectorAll(".armas-contenedor .prueba");
+
+    items.forEach(item => {
+        const itemElement = item.getAttribute("data-elemento");
+        const itemWeapon = item.getAttribute("data-arma");
+        const itemRarity = item.getAttribute("data-rareza");
+
+        const matchesElement = selectedElements.length === 0 || selectedElements.includes(itemElement);
+        const matchesWeapon = selectedWeapons.length === 0 || selectedWeapons.includes(itemWeapon);
+        const matchesRarity = selectedRarities.length === 0 || selectedRarities.includes(itemRarity);
+
+        if (matchesElement && matchesWeapon && matchesRarity) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
 }
 
-function resetFilters1() {
-    checkboxes1.forEach(checkbox => {
+// Eventos de aplicación de filtros
+document.getElementById("apply-filters1").addEventListener("click", applyFilters);
+document.getElementById("apply-filters2").addEventListener("click", applyFilters);
+document.getElementById("apply-filters3").addEventListener("click", applyFilters);
+
+// Restablece los filtros
+function resetFilters() {
+    document.querySelectorAll(".filter-container input[type=checkbox]").forEach(checkbox => {
         checkbox.checked = false;
     });
-    updateSelectedOptions1();
+    applyFilters();
 }
 
-// Filtro 2
-document.getElementById('filter-toggle2').addEventListener('click', function() {
-    const options = document.getElementById('filter-options2');
-    options.classList.toggle('hidden');
-});
+// Eventos de restablecimiento de filtros
+document.getElementById("reset-filters1").addEventListener("click", resetFilters);
+document.getElementById("reset-filters2").addEventListener("click", resetFilters);
+document.getElementById("reset-filters3").addEventListener("click", resetFilters);
 
-const checkboxes2 = document.querySelectorAll('#filter-options2 input[type="checkbox"]');
-document.getElementById('apply-filters2').addEventListener('click', updateSelectedOptions2);
-document.getElementById('reset-filters2').addEventListener('click', resetFilters2);
-
-function updateSelectedOptions2() {
-    const selectedValues2 = Array.from(checkboxes2)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-    //selectedOptionsDiv.textContent = 'Seleccionadas: ' + selectedValues2.join(', ');
-}
-
-function resetFilters2() {
-    checkboxes2.forEach(checkbox => {
-        checkbox.checked = false;
-    });
-    updateSelectedOptions2();
-}
-
-// Función para alternar el estado del checkbox
-function toggleCheckbox(element) {
-    const checkbox = element.querySelector('input[type="checkbox"]');
+// Cambia el estado del checkbox cuando se hace clic en el contenedor de la etiqueta
+function toggleCheckbox(labelContainer) {
+    const checkbox = labelContainer.querySelector("input[type='checkbox']");
     checkbox.checked = !checkbox.checked;
 }
-
-// Añadir evento a los contenedores
-document.querySelectorAll('.label-container').forEach(container => {
-    container.addEventListener('click', function(e) {
-        const checkbox = this.querySelector('input[type="checkbox"]');
-        checkbox.checked = !checkbox.checked; // Cambia el estado del checkbox
-    });
-});
-
-// Añadir evento directamente a los checkboxes para que no propaguen el evento
-document.querySelectorAll('.label-container input[type="checkbox"]').forEach(checkbox => {
-    checkbox.addEventListener('click', function(e) {
-        e.stopPropagation(); // Evita que el click se propague al contenedor
-    });
-});
-
-// Filtro 3
-document.getElementById('filter-toggle3').addEventListener('click', function() {
-    const options = document.getElementById('filter-options3');
-    options.classList.toggle('hidden');
-});
-
-const checkboxes3 = document.querySelectorAll('#filter-options3 input[type="checkbox"]');
-document.getElementById('apply-filters3').addEventListener('click', updateSelectedOptions3);
-document.getElementById('reset-filters3').addEventListener('click', resetFilters3);
-
-function updateSelectedOptions3() {
-    const selectedValues3 = Array.from(checkboxes3)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-    //selectedOptionsDiv.textContent = 'Seleccionadas: ' + selectedValues3.join(', ');
-}
-
-function resetFilters3() {
-    checkboxes3.forEach(checkbox => {
-        checkbox.checked = false;
-    });
-    updateSelectedOptions3();
-}
-
-
-// Función para aplicar los filtros combinados
-function applyCombinedFilters() {
-    const elementosSeleccionados = Array.from(checkboxes1)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.getAttribute('data-filter'));
-
-    const armasSeleccionadas = Array.from(checkboxes2)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.getAttribute('data-filter'));
-
-    const rarezasSeleccionadas = Array.from(checkboxes3)
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.getAttribute('data-filter'));
-
-    const personajes = document.querySelectorAll('.prueba.cursor');
-
-    personajes.forEach(personaje => {
-        const personajeElemento = personaje.getAttribute('data-filter-elemento');
-        const personajeArma = personaje.getAttribute('data-filter-arma');
-        const personajeRareza = personaje.getAttribute('data-filter-rareza');
-
-        const coincideElemento = elementosSeleccionados.length === 0 || elementosSeleccionados.includes(personajeElemento);
-        const coincideArma = armasSeleccionadas.length === 0 || armasSeleccionadas.includes(personajeArma);
-        const coincideRareza = rarezasSeleccionadas.length === 0 || rarezasSeleccionadas.includes(personajeRareza);
-
-        if (coincideElemento && coincideArma && coincideRareza) {
-            personaje.style.display = 'block';
-        } else {
-            personaje.style.display = 'none';
-        }
-    });
-}
-                                                                                                         
-// Función para aplicar los filtros combinados
-// Función para aplicar los filtros combinados a las armas
-function applyCombinedFilters() {
-    const atributosSeleccionados = Array.from(document.querySelectorAll('#filter-options1 input[type="checkbox"]'))
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value);
-
-    const tiposDeArmaSeleccionados = Array.from(document.querySelectorAll('#filter-options2 input[type="checkbox"]'))
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.getAttribute('data-filter'));
-
-    const calidadesSeleccionadas = Array.from(document.querySelectorAll('#filter-options3 input[type="checkbox"]'))
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.getAttribute('data-filter') + ' estrellas'); // Añadimos " estrellas" para coincidencia
-
-    const armas = document.querySelectorAll('.prueba.cursor');
-
-    armas.forEach(arma => {
-        const armaAtributo = arma.getAttribute('data-atributo');
-        const armaTipo = arma.getAttribute('data-arma');
-        const armaCalidad = arma.getAttribute('data-calidad');
-
-        const coincideAtributo = atributosSeleccionados.length === 0 || atributosSeleccionados.includes(armaAtributo);
-        const coincideTipo = tiposDeArmaSeleccionados.length === 0 || tiposDeArmaSeleccionados.includes(armaTipo);
-        const coincideCalidad = calidadesSeleccionadas.length === 0 || calidadesSeleccionadas.includes(armaCalidad);
-
-        if (coincideAtributo && coincideTipo && coincideCalidad) {
-            arma.style.display = 'block';
-        } else {
-            arma.style.display = 'none';
-        }
-    });
-}
-
-
-// Event listeners para aplicar filtros
-document.getElementById('apply-filters1').addEventListener('click', applyCombinedFilters);
-document.getElementById('apply-filters2').addEventListener('click', applyCombinedFilters);
-document.getElementById('apply-filters3').addEventListener('click', applyCombinedFilters);
-
-// Event listeners para resetear filtros
-document.getElementById('reset-filters1').addEventListener('click', () => {
-    checkboxes1.forEach(checkbox => checkbox.checked = false);
-    applyCombinedFilters();
-});
-document.getElementById('reset-filters2').addEventListener('click', () => {
-    checkboxes2.forEach(checkbox => checkbox.checked = false);
-    applyCombinedFilters();
-});
-document.getElementById('reset-filters3').addEventListener('click', () => {
-    checkboxes3.forEach(checkbox => checkbox.checked = false);
-    applyCombinedFilters();
-});
-

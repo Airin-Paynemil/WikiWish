@@ -179,7 +179,7 @@ exit();
             if ($result_DA) {
                 // Recorrer los resultados y mostrarlos
                 while ($row_DA = $result_DA->fetch_assoc()) {
-                    echo '<div class="prueba cursor" data-atributo="' . $row_DA['atrib-secundario_DA'] . '" data-arma="' . $row_DA['tipo_DA'] . '" data-calidad="' . $row_DA['calidad_DA'] . '">';
+                    echo '<div class="prueba cursor" data-atributo="' . $row_DA['atributo_DA'] . '" data-arma="' . $row_DA['tipo_DA'] . '" data-calidad="' . $row_DA['calidad_DA'] . '">';
                     echo '<div class="contenedor-info">';
                     echo '<img src="' . $row_DA['imagenURL_DA'] . '" class="icono-info"/>';
                     echo '<div class="info-arma">';

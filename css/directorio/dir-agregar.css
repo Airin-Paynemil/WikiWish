@@ -1,0 +1,7 @@
+.formulario{
+    font-size: larger;
+}
+
+select option:first-child {
+    display: none;
+}

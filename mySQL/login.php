@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($password === $stored_password) {
             $_SESSION['user_id'] = $id;
-            header("Location: ../index.php");  // Cambiado a PHP
+            header("Location: http://localhost/Wiki/index.php");  // Cambiado a PHP
             exit();
         } else {
             echo "Contraseña incorrecta";
