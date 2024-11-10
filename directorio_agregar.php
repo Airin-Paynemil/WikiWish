@@ -55,6 +55,16 @@ exit();
 
     <div id="division_barra" class="info cerrado">
 
+        <nav class="ubicacion">
+            <div id="home-link">
+                <a href="index.php"><span>Home</span></a>
+            </div>
+            <div id="link">
+                <i>/</i>
+                <span>Agregar</span>
+            </div>
+        </nav>
+
         <h2>Agregar Personaje o Arma</h2>
     
         <label for="tipo">Tipo (Personaje o Arma):</label>
@@ -79,22 +89,22 @@ exit();
             <label for="elemento_DP">Elemento:</label>
             <select name="elemento_DP" id="elemento_DP" required>
                 <option value="">Seleccionar...</option>
-                <option value="Pyro">Pyro</option>
-                <option value="Cryo">Cryo</option>
-                <option value="Electro">Electro</option>
-                <option value="Geo">Geo</option>
-                <option value="Anemo">Anemo</option>
-                <option value="Hydro">Hydro</option>
+                <option value="pyro">Pyro</option>
+                <option value="cryo">Cryo</option>
+                <option value="electro">Electro</option>
+                <option value="geo">Geo</option>
+                <option value="anemo">Anemo</option>
+                <option value="hydro">Hydro</option>
             </select><br><br>
 
             <label for="arma_DP">Tipo de Arma:</label>
             <select name="arma_DP" id="arma_DP" required>
                 <option value="">Seleccionar...</option>
-                <option value="Catalizador">Catalizador</option>
-                <option value="Arco">Arco</option>
-                <option value="Espada">Espada</option>
-                <option value="Mandoble">Mandoble</option>
-                <option value="Lanza">Lanza</option>
+                <option value="catalizador">Catalizador</option>
+                <option value="arco">Arco</option>
+                <option value="espada">Espada</option>
+                <option value="mandoble">Mandoble</option>
+                <option value="lanza">Lanza</option>
             </select><br><br>
 
             <label for="description_DP">Descripción:</label><br>
@@ -102,8 +112,11 @@ exit();
 
             
 
-            <label for="imagenURL_DP">URL de Imagen del Personaje:</label>
-            <input type="text" id="imagenURL_DP" name="imagenURL_DP" placeholder="http://example.com/image.jpg"><br><br>
+            <label for="imagenURL_DP">Subir Imagen del Personaje (URL o Archivo):</label>
+            <input type="text" id="imagenURL_DP" name="imagenURL_DP" placeholder="http://example.com/image.jpg">
+            <br>O<br>
+            <input type="file" id="file_DP" name="file_DP" accept="image/*">
+            <br><br>
 
 
             <button type="submit" name="submit_DP">Cargar Personaje</button>
@@ -117,11 +130,11 @@ exit();
             <label for="type_DA">Tipo de Arma:</label>
             <select name="type_DA" id="type_DA">
                 <option value="">Seleccionar...</option>
-                <option value="Catalizador">Catalizador</option>
-                <option value="Arco">Arco</option>
-                <option value="Espada">Espada</option>
-                <option value="Mandoble">Mandoble</option>
-                <option value="Lanza">Lanza</option>
+                <option value="catalizador">Catalizador</option>
+                <option value="arco">Arco</option>
+                <option value="espada">Espada</option>
+                <option value="mandoble">Mandoble</option>
+                <option value="lanza">Lanza</option>
             </select><br><br>
 
             <label for="calidad_DA">Calidad:</label>
@@ -135,12 +148,12 @@ exit();
             <label for="atributo_DA">Atributo Secundario:</label>
             <select name="atributo_DA" id="atributo_DA">
                 <option value="">Seleccionar...</option>
-                <option value="Ataque">Ataque</option>
-                <option value="Defensa">Defensa</option>
-                <option value="Vida">Vida</option>
-                <option value="Recarga">Recarga</option>
-                <option value="Prob.Crit">Prob.Crit</option>
-                <option value="Daño.Crit">Daño.Crit</option>
+                <option value="ataque">Ataque</option>
+                <option value="defensa">Defensa</option>
+                <option value="vida">Vida</option>
+                <option value="recarga">Recarga</option>
+                <option value="prob.crit">Prob.Crit</option>
+                <option value="daño.crit">Daño.Crit</option>
             </select><br><br>
 
 
@@ -151,8 +164,8 @@ exit();
 
             
 
-            <label for="imagenURL_DP">Subir Imagen del Arma:</label>
-            <input type="file" id="imagenURL_DP" name="imagenURL_DP" accept="image/*" required><br><br>
+            <label for="imagenURL_DA">Subir Imagen del Arma:</label>
+            <input type="file" id="imagenURL_DA" name="imagenURL_DA" accept="image/*" required><br><br>
 
             <button type="submit" name="submit_DA">Cargar Arma</button>
         </form>

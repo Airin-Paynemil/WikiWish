@@ -176,17 +176,56 @@ exit();
                 // Recorrer los resultados y mostrarlos
                 while ($row_DP = $result_DP->fetch_assoc()) {
                     echo '<div class="prueba cursor" data-elemento="' . $row_DP['elemento_DP'] . '" data-arma="' . $row_DP['arma_DP'] . '" data-rareza="' . $row_DP['rareza_DP'] . '">';
-                    echo '<div class="contenedor-info">';
-                    echo '<img src="' . $row_DP['imagenURL_DP'] . '" class="icono-info"/>';
-                    echo '<div class="info-arma">';
-                    echo '<p class="nombre">' . $row_DP['nombre_DP'] . ' 
-                            <span class="rareza">' . $row_DP['rareza_DP'] . '
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                            </span>
-                        </p>';
-                    echo '<p class="descripcion">' . $row_DP['descripcion_DP'] . '</p>';
-                    echo '</div>';
-                    echo '</div>';
+                        echo '<div class="contenedor-info">';
+                            echo '<img src="' . $row_DP['imagenURL_DP'] . '" class="icono-info"/>';
+                            echo '<div class="info-escrita">';
+                                echo '<div class="info-escrita-elementos">';
+                                    echo '<p class="nombre">' . $row_DP['nombre_DP'] . '</p>';
+                                    echo '<span class="rareza">' . $row_DP['rareza_DP'] . '
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                        </span>';
+
+                                    // Seleccionar imagen para el elemento
+                                    $elementoImagen = '';
+                                    if ($row_DP['elemento_DP'] === 'pyro') {
+                                        $elementoImagen = 'http://localhost/Wiki/imagenes/iconos/pyro.png';
+                                    } elseif ($row_DP['elemento_DP'] === 'cryo') {
+                                        $elementoImagen = 'http://localhost/Wiki/imagenes/iconos/cryo.png';
+                                    } elseif ($row_DP['elemento_DP'] === 'anemo') {
+                                        $elementoImagen = 'http://localhost/Wiki/imagenes/iconos/anemo.png';
+                                    } elseif ($row_DP['elemento_DP'] === 'electro') {
+                                        $elementoImagen = 'http://localhost/Wiki/imagenes/iconos/electro.png';
+                                    } elseif ($row_DP['elemento_DP'] === 'dendro') {
+                                        $elementoImagen = 'http://localhost/Wiki/imagenes/iconos/dendro.png';
+                                    } elseif ($row_DP['elemento_DP'] === 'hydro') {
+                                        $elementoImagen = 'http://localhost/Wiki/imagenes/iconos/hydro.png';
+                                    } elseif ($row_DP['elemento_DP'] === 'geo') {
+                                        $elementoImagen = 'http://localhost/Wiki/imagenes/iconos/geo.png';
+                                    }
+
+                                    // Seleccionar imagen para el arma
+                                    $armaImagen = '';
+                                    if ($row_DP['arma_DP'] === 'mandoble') {
+                                        $armaImagen = 'http://localhost/Wiki/imagenes/iconos/mandoble.png';
+                                    } elseif ($row_DP['arma_DP'] === 'espada') {
+                                        $armaImagen = 'http://localhost/Wiki/imagenes/iconos/espada.png';
+                                    } elseif ($row_DP['arma_DP'] === 'lanza') {
+                                        $armaImagen = 'http://localhost/Wiki/imagenes/iconos/lanza.png';
+                                    } elseif ($row_DP['arma_DP'] === 'catalizador') {
+                                        $armaImagen = 'http://localhost/Wiki/imagenes/iconos/catalizador.png';
+                                    } elseif ($row_DP['arma_DP'] === 'arco') {
+                                        $armaImagen = 'http://localhost/Wiki/imagenes/iconos/arco.png';
+                                    }
+                                    
+
+                                    // Mostrar las imágenes según el elemento y el arma
+                                    echo '<img src="' . $elementoImagen . '" class="icono-adicional" alt="' . $row_DP['elemento_DP'] . ' Icono">';
+                                    echo '<img src="' . $armaImagen . '" class="icono-adicional" alt="' . $row_DP['arma_DP'] . ' Icono">';
+
+                                echo '</div>';
+                                echo '<p class="descripcion">' . $row_DP['descripcion_DP'] . '</p>';
+                            echo '</div>';
+                        echo '</div>';
                     echo '</div>';
                 }
             } else {
@@ -194,6 +233,7 @@ exit();
             }
             ?>
         </div>
+
 
 
     </div>

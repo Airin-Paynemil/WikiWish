@@ -5,6 +5,7 @@
 
 
 
+
 .ubicacion{
     display: flex;
     margin-bottom: 10px;
@@ -76,25 +77,30 @@
     row-gap: 10px;
     margin-top: 50px;
     padding-block-end: 20px;
+    min-height: 300px; /* Para mantener la altura fija */
 }
 
-
 .prueba {
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     background-color: rgba(55, 29, 92, 0.9);
-    display: flex;
     width: 48%;
     height: 150px;
-    text-align: center;
-    align-items: center;
+    min-width: 48%;
+    min-height: 150px;
+    box-sizing: border-box;
 }
 
 .contenedor-info {
     display: flex;
-    align-items: center; /* Asegura que los elementos dentro de este contenedor se alineen verticalmente */
-    justify-content: center; /* Centra los elementos horizontalmente si es necesario */
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ocupa el 100% de .prueba */
+    height: 100%; /* Ocupa el 100% de .prueba */
 }
+
 
 .icono-info {
     background: rgb(226, 206, 115);
@@ -108,16 +114,47 @@
 }
 
 
-.info-arma{
-    margin: 5px 15px 10px 10px;
+
+.icono-info img {
+    width: 100%;
+    height: 100%; /* Ajusta automáticamente la altura en proporción */
+    max-width: 100px; /* Máxima anchura */
+    max-height: 100px; /* Máxima altura */
+    object-fit: cover; /* Recorta la imagen si es necesario */
 }
+
+.info-escrita{
+    height: 100%;
+    width: 100%;
+    padding: 5%;
+    box-sizing: border-box;
+
+}
+
+.info-escrita-elementos {
+    display: flex; /* Alinea todo horizontalmente */
+    align-items: center; /* Centra verticalmente los elementos dentro */
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+    gap: 1px; /* Espacio entre los elementos, puedes ajustar este valor */
+    height: 30%;
+}
+
+.icono-adicional {
+    width: 20px; /* Ajusta al tamaño deseado */
+    height: 20px;
+    margin-left: 5px;
+    background: rgb(33, 25, 68);
+    padding: 2px;
+    border-radius: 100%;
+}
+
 
 .nombre{
     padding: 0px 0px 5px 0px;
     text-align: left;
-    color: rgb(197, 174, 72);
+    color: rgb(84, 180, 218);
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: medium;
+    font-size: 18px;
 
 }
 
@@ -126,18 +163,19 @@
     color: rgb(164, 131, 201);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: small;
+    height: 70%;
 }
 
 .rareza {
     display: inline-flex;
     align-items: center;
-    vertical-align: middle;
+    font-size: medium;
     margin-left: 5px;
     color: rgb(197, 174, 72); /* Puedes cambiar el color según prefieras */
 }
 
 .rareza svg {
-    margin-left: 2px; /* Espacio entre el número y la estrella */
+    margin-left: 1px; /* Espacio entre el número y la estrella */
 }
 
 

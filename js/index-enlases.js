@@ -13,6 +13,6 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     document.getElementById("miBoton4").onclick = function() {
-        window.location.href = "http://localhost/Wiki/calculadora.php";
+        window.location.href = "http://localhost/Wiki/equipos.php";
     };
 });

@@ -68,7 +68,7 @@
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <div class="btn draw-border" id="miBoton4">Calculadora de Mejoras</div>
+                <div class="btn draw-border" id="miBoton4">Equipos Favoritos</div>
             </div>
         </div>
     </nav>    

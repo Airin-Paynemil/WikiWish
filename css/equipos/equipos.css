@@ -1,0 +1,123 @@
+@font-face {
+    font-family: "titulo";
+    src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf);
+}
+
+body{
+    background: url('../../imagenes/fondo_4.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Hace que la imagen de fondo se quede fija mientras se desplaza el contenido */
+    min-height: 100vh; /* Garantiza que el contenedor tenga al menos el tamaño de la pantalla */
+    padding-top: 56px; /* Deja espacio en la parte superior para la barra */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+
+.ubicacion{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.link {
+    font-family: 'Inknut';
+    src: url(../fuentes/InknutAntiqua-Light.ttf);
+}
+
+.home-link {
+    color: rgb(233, 196, 32);
+    font-family: 'Inknut';
+    src: url(/fuentes/InknutAntiqua-Light.ttf);
+}
+    .home-link a {
+        text-decoration: none; /* Quitar subrayado */
+        color: inherit; /* Mantener el color de texto como está */
+    }
+
+/* Contenedor principal */
+/* Contenedor principal */
+#contenedor-principal {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Previene cualquier desbordamiento */
+}
+
+/* Contenedor para los equipos */
+.equipos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%; /* Asegura que el contenedor ocupe el 100% del ancho */
+}
+
+/* Card para cada equipo */
+.equipo-card {
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.equipo-header h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Contenedor para los personajes */
+.personajes-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Card para cada personaje */
+.personaje-card {
+    width: 120px;
+    text-align: center;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Estilo para la imagen del personaje dentro de un div azul */
+.personaje-card .image-container {
+    width: 100px;  /* Tamaño del div que contiene la imagen */
+    height: 100px;  /* Tamaño del div que contiene la imagen */
+    background-color: #007bff;  /* Color de fondo azul */
+    border-radius: 10%;  /* Borde redondeado para que el contenedor también sea circular */
+    display: flex;
+    align-items: center;  /* Centra la imagen verticalmente */
+    justify-content: center;  /* Centra la imagen horizontalmente */
+    margin: 0 auto;  /* Centra el contenedor de la imagen dentro de la tarjeta */
+    padding: 0px;  /* Espacio adicional alrededor de la imagen */
+}
+
+.personaje-card img {
+    width: 90px;  /* Tamaño de la imagen dentro del contenedor */
+    height: 90px;  /* Tamaño de la imagen dentro del contenedor */
+    border-radius: 10%;  /* Mantiene la imagen redonda */
+}
+
+/* Estilo para el botón de eliminar */
+.delete-btn {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.delete-btn:hover {
+    background-color: #e60000;
+}
+
+/* Mensaje cuando no hay equipos */
+.no-equipos {
+    font-size: 18px;
+    color: #555;
+    text-align: center;
+    padding: 20px;
+}

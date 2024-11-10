@@ -172,34 +172,58 @@ exit();
 
         <!--ARMAS-->
         <!-- Contenedor info -->
-        <div class="armas-contenedor">
+          <div class="armas-contenedor">
             <?php
-
             // Verificar si la consulta retornó resultados
             if ($result_DA) {
                 // Recorrer los resultados y mostrarlos
                 while ($row_DA = $result_DA->fetch_assoc()) {
                     echo '<div class="prueba cursor" data-atributo="' . $row_DA['atributo_DA'] . '" data-arma="' . $row_DA['tipo_DA'] . '" data-calidad="' . $row_DA['calidad_DA'] . '">';
                     echo '<div class="contenedor-info">';
-                    echo '<img src="' . $row_DA['imagenURL_DA'] . '" class="icono-info"/>';
-                    echo '<div class="info-arma">';
-                    echo '<p class="nombre">' . $row_DA['nombre_DA'] . '
-                            <span class="rareza">' . $row_DA['calidad_DA'] . '
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
-                                <path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                            </svg>
-                            </span>
-                        </p>';
-                    echo '<p class="descripcion">' . $row_DA['descripcion_DA'] . '</p>';
-                    echo '</div>';
-                    echo '</div>';
-                    echo '</div>';
+                        // Imagen principal del arma
+                        echo '<img src="' . $row_DA['imagenURL_DA'] . '" class="icono-info"/>';
+                        echo '<div class="info-escrita">';
+                            echo '<div class="info-escrita-elementos">';
+                                // Nombre del arma
+                                echo '<p class="nombre">' . $row_DA['nombre_DA'] . '</p>';
+                                
+                                // Calidad (con la estrella)
+                                echo '<span class="rareza">' . $row_DA['calidad_DA'] . '
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                                        <path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    </svg>
+                                </span>';
+                                
+                                // Mostrar las imágenes adicionales (arma)
+                                // Seleccionar imagen para el arma
+                                $armaImagen = '';
+                                if ($row_DA['tipo_DA'] === 'mandoble') {
+                                    $armaImagen = 'http://localhost/Wiki/imagenes/iconos/mandoble.png';
+                                } elseif ($row_DA['tipo_DA'] === 'espada') {
+                                    $armaImagen = 'http://localhost/Wiki/imagenes/iconos/espada.png';
+                                } elseif ($row_DA['tipo_DA'] === 'lanza') {
+                                    $armaImagen = 'http://localhost/Wiki/imagenes/iconos/lanza.png';
+                                } elseif ($row_DA['tipo_DA'] === 'catalizador') {
+                                    $armaImagen = 'http://localhost/Wiki/imagenes/iconos/catalizador.png';
+                                } elseif ($row_DA['tipo_DA'] === 'arco') {
+                                    $armaImagen = 'http://localhost/Wiki/imagenes/iconos/arco.png';
+                                }
+                                
+                                // Mostrar las imágenes según el arma
+                                echo '<img src="' . $armaImagen . '" class="icono-adicional" alt="' . $row_DA['tipo_DA'] . ' Icono">';
+
+                            echo '</div>'; // fin de info-escrita-elementos
+                            echo '<p class="descripcion">' . $row_DA['descripcion_DA'] . '</p>';
+                        echo '</div>'; // fin de info-escrita
+                    echo '</div>'; // fin de contenedor-info
+                    echo '</div>'; // fin de prueba
                 }
             } else {
                 echo "No se encontraron armas.";
             }
             ?>
         </div>
+
 
 
     </div>
