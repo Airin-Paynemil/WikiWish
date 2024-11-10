@@ -5,7 +5,7 @@ if (!isset($_SESSION['user_id'])) {
     "<script>alert('Por favor, inicie sesión'); 
     window.location.href = 'http://localhost/Wiki/pantallasInicio/login.html';</script>"; 
 exit(); 
-} 
+}  
 ?>
 <?php include "mySQL/dir-armas-consult.php"; ?>
 
@@ -42,7 +42,7 @@ exit();
     </div>
 
     <!---ESTO ES LA BARRA DIRECTORIO----->
-    <div id="division_barra">
+    <div >
         <section class="directorio">
             <div id="dir-titulo">Directorio</div>
                 <nav class="menu">
@@ -53,7 +53,7 @@ exit();
         </section>
     </div>
 
-    <div id="division_barra" class="info cerrado">
+    <div class="info cerrado">
 
         <nav class="ubicacion">
             <div id="home-link">
@@ -162,10 +162,11 @@ exit();
             <label for="description_DA">Descripción:</label><br>
             <textarea id="description_DA" name="description_DA" rows="4" cols="50" maxlength="200" required></textarea><br><br>
 
-            
-
-            <label for="imagenURL_DA">Subir Imagen del Arma:</label>
-            <input type="file" id="imagenURL_DA" name="imagenURL_DA" accept="image/*" required><br><br>
+            <label for="imagenURL_DA">Subir Imagen del Personaje (URL o Archivo):</label>
+            <input type="text" id="imagenURL_DA" name="imagenURL_DA" placeholder="http://example.com/image.jpg">
+            <br>O<br>
+            <input type="file" id="file_DA" name="file_DA" accept="image/*">
+            <br><br>
 
             <button type="submit" name="submit_DA">Cargar Arma</button>
         </form>

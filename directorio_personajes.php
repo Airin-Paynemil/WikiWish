@@ -43,7 +43,7 @@ exit();
     </div>
 
     <!---ESTO ES LA BARRA DIRECTORIO----->
-    <div id="division_barra">
+    <div>
         <section class="directorio">
             <div id="dir-titulo">Directorio</div>
                 <nav class="menu">
@@ -55,7 +55,7 @@ exit();
     </div>
 
     <!--ESTA ES LA PARTE EN DONDE APARECE LA INFO-->
-    <div id="division_barra" class="info">
+    <div class="info">
         <nav class="ubicacion">
             <div id="home-link">
                 <a href="index.php"><span>Home</span></a>

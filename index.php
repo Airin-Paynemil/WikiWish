@@ -59,7 +59,7 @@
                 <div class="iconos-menu">
                     <div class="imagen"></div>
                 </div>
-                <div class="btn draw-border" id="miBoton3">hola :P</div>
+                <div class="btn draw-border" id="miBoton3">+Agregar</div>
             </div>
         </div>
     

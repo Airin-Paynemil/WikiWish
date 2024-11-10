@@ -3,20 +3,37 @@
     src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf);
 }
 
+body {
+    background: url('../../imagenes/fondo_4.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Hace que la imagen de fondo se quede fija mientras se desplaza el contenido */
+    min-height: 100vh; /* Garantiza que el contenedor tenga al menos el tamaño de la pantalla */
+    padding-top: 56px; /* Deja espacio en la parte superior para la barra */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    position: relative; /* Necesario para que la capa overlay cubra todo el cuerpo */
+}
 
+/* Capa traslúcida */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Esto asegura que cubra el cuerpo completo, incluso si la página es más larga */
+    background-color: rgba(65, 37, 109, 0.7); /* Color con transparencia */
+    z-index: -1; /* Asegura que el contenido esté por encima de la capa */
+}
 
-
-.ubicacion{
+.ubicacion {
     display: flex;
     margin-bottom: 10px;
 }
-                                            
-#titulo-info{
+
+#titulo-info {
     padding: 0%;
     margin: 0px 0px 10px 0px;
     font-size: 30px;
     font-family: "titulo";
-
 }
 
 #link {
@@ -35,62 +52,36 @@
     color: inherit; /* Mantener el color de texto como está */
 }
 
-
-
-
 .info {
     position: relative; /* Necesario para posicionar la capa superpuesta */
-    min-height: 100vh;
     width: calc(100% - 300px);
     margin-left: 300px;
-    padding: 20px 20px 0px 40px;
-    background: url('../../imagenes/skil.jfif') no-repeat center center/cover;
+    padding: 20px;
     box-sizing: border-box; /* Evita el desbordamiento de otros elementos */
 }
 
-.info::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(65, 37, 109, 0.7); /* Color con transparencia */
-}
-
-
-/* Contenido dentro de .info */
-.info > * {
-    position: relative;
-     /* Asegura que el contenido esté por encima de la capa transparente */
-}
-
-.cursor{
-    cursor: pointer;
-}
-
-
+/* Contenedor para las armas con dos columnas */
 .armas-contenedor {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2%;
+    display: grid; /* Usamos grid para facilitar la creación de columnas */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas de tamaño igual */
+    gap: 2%; /* Espacio entre las columnas */
     row-gap: 10px;
     margin-top: 50px;
-    padding-block-end: 20px;
     min-height: 300px; /* Para mantener la altura fija */
+    width: 100%;
 }
 
+/* Estilo para los elementos dentro del contenedor */
 .prueba {
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     background-color: rgba(55, 29, 92, 0.9);
-    width: 48%;
     height: 150px;
-    min-width: 48%;
-    min-height: 150px;
     box-sizing: border-box;
+    min-width: 100%; /* Esto asegura que se ajusten a la columna */
+    margin-bottom: 10px; /* Espacio entre las tarjetas */
 }
 
 .contenedor-info {
@@ -105,30 +96,26 @@
 .icono-info {
     background: rgb(226, 206, 115);
     border-radius: 10px;
-    border: rgb(44, 23, 102) 1px solid;
-    width: 100px;
+    border: rgb(0, 0, 0) 1px solid;
+    width: 137px;
     height: 100px;
     margin: 0 10px 0 25px; /* Ajusta este valor para mover el icono a la izquierda */
     align-self: center; /* Asegura que la imagen esté centrada verticalmente */
     z-index: 1;
+    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga del contenedor */
 }
-
-
 
 .icono-info img {
-    width: 100%;
-    height: 100%; /* Ajusta automáticamente la altura en proporción */
-    max-width: 100px; /* Máxima anchura */
-    max-height: 100px; /* Máxima altura */
-    object-fit: cover; /* Recorta la imagen si es necesario */
+    width: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
+    height: 100%; /* Asegura que la imagen ocupe el 100% del contenedor */
+    object-fit: contain; /* Recorta la imagen si es necesario para llenar el contenedor */
 }
 
-.info-escrita{
+.info-escrita {
     height: 100%;
     width: 100%;
     padding: 5%;
     box-sizing: border-box;
-
 }
 
 .info-escrita-elementos {
@@ -148,17 +135,15 @@
     border-radius: 100%;
 }
 
-
-.nombre{
+.nombre {
     padding: 0px 0px 5px 0px;
     text-align: left;
     color: rgb(84, 180, 218);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
-
 }
 
-.descripcion{
+.descripcion {
     text-align: left;
     color: rgb(164, 131, 201);
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -177,5 +162,3 @@
 .rareza svg {
     margin-left: 1px; /* Espacio entre el número y la estrella */
 }
-
-

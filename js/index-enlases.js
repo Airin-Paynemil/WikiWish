@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     document.getElementById("miBoton3").onclick = function() {
-        window.location.href = "http://localhost/Wiki/directorio_enemigos.php";
+        window.location.href = "http://localhost/Wiki/directorio_agregar.php";
     };
 
     document.getElementById("miBoton4").onclick = function() {

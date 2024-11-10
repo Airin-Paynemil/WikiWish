@@ -42,7 +42,7 @@ exit();
   </div>
 
     <!---ESTO ES LA BARRA DIRECTORIO----->
-    <div id="division_barra">
+    <div>
         <section class="directorio">
             <div id="dir-titulo">Directorio</div>
                 <nav class="menu">
@@ -54,7 +54,7 @@ exit();
     </div>
 
     <!--ESTA ES LA PARTE EN DONDE APARECE LA INFO-->
-    <div id="division_barra" class="info">
+    <div class="info">
         <nav class="ubicacion">
           <div id="home-link">
               <a href="index.php"><span>Home</span></a>
@@ -80,17 +80,17 @@ exit();
                 <div id="filter-options3" class="hidden">
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option3-5">5 Estrellas</label>
-                        <input type="checkbox" id="option3-1" value="5">
+                        <input type="checkbox" id="option3-5" value="5">
                     </div>
 
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option3-4">4 Estrellas</label>
-                        <input type="checkbox" id="option3-2" value="4">
+                        <input type="checkbox" id="option3-4" value="4">
                     </div>
 
                     <div class="label-container" onclick="toggleCheckbox(this)">
                         <label for="option3-3">3 Estrellas</label>
-                        <input type="checkbox" id="option3-2" value="3">
+                        <input type="checkbox" id="option3-3" value="3">
                     </div>
 
                     <div class="filter-buttons">
