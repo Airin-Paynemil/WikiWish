@@ -1,7 +1,53 @@
 @font-face {
-    font-family: "titulo";
-    src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf);
+    font-family: "black";
+    src: url(../../fuentes/InknutAntiqua-Black.ttf) format("truetype");
+    font-weight: 900; /* Peso específico para Black */
+    font-style: normal;
 }
+
+@font-face {
+    font-family: "bold";
+    src: url(../../fuentes/InknutAntiqua-Bold.ttf) format("truetype");
+    font-weight: 700; /* Peso específico para Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "extraBold";
+    src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf) format("truetype");
+    font-weight: 800; /* Peso específico para ExtraBold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "light";
+    src: url(../../fuentes/InknutAntiqua-Light.ttf) format("truetype");
+    font-weight: 100; /* Peso específico para Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "medium";
+    src: url(../../fuentes/InknutAntiqua-Medium.ttf) format("truetype");
+    font-weight: 500; /* Peso específico para Medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "regular";
+    src: url(../../fuentes/InknutAntiqua-Regular.ttf) format("truetype");
+    font-weight: 400; /* Peso específico para Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "semiBold";
+    src: url(../../fuentes/InknutAntiqua-SemiBold.ttf) format("truetype");
+    font-weight: 600; /* Peso específico para SemiBold */
+    font-style: normal;
+}
+
+/*-------------------------------------------------------------------*/
 
 body {
     background: url('../../imagenes/fondo_4.jpg') no-repeat center center/cover;
@@ -20,7 +66,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%; /* Esto asegura que cubra el cuerpo completo, incluso si la página es más larga */
-    background-color: rgba(65, 37, 109, 0.7); /* Color con transparencia */
+    background-color: rgba(143, 48, 143, 0.507); /* Color con transparencia */
     z-index: -1; /* Asegura que el contenido esté por encima de la capa */
 }
 
@@ -37,14 +83,14 @@ body::before {
 }
 
 #link {
-    font-family: 'Inknut';
-    src: url(../fuentes/InknutAntiqua-Light.ttf);
+    font-family: 'light';
+    font-size: small;
 }
 
 #home-link {
     color: rgb(233, 196, 32);
-    font-family: 'Inknut';
-    src: url(/fuentes/InknutAntiqua-Light.ttf);
+    font-family: 'light';
+    font-size: small;
 }
 
 #home-link a {
@@ -78,6 +124,7 @@ body::before {
     justify-content: center;
     border-radius: 10px;
     background-color: rgba(55, 29, 92, 0.9);
+    border: rgb(44, 23, 102) 2px solid;
     height: 150px;
     box-sizing: border-box;
     min-width: 100%; /* Esto asegura que se ajusten a la columna */
@@ -96,7 +143,7 @@ body::before {
 .icono-info {
     background: rgb(226, 206, 115);
     border-radius: 10px;
-    border: rgb(0, 0, 0) 1px solid;
+    border: rgba(247, 222, 85, 0.452) 1.5px solid;
     width: 137px;
     height: 100px;
     margin: 0 10px 0 25px; /* Ajusta este valor para mover el icono a la izquierda */

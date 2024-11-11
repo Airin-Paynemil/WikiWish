@@ -4,7 +4,8 @@
 }
 
 .directorio{
-    background-color: rgb(54, 33, 102); 
+    background-color: rgb(54, 33, 102);
+    border-right: rgb(37, 18, 90) 2px solid;
     position: fixed;
     height: 100%;
     width: 300px; 

@@ -104,7 +104,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-}
+} 
 
 input[type="search"]:-webkit-autofill,
 input[type="search"]:-webkit-autofill:hover,

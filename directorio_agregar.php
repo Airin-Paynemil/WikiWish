@@ -54,121 +54,152 @@ exit();
     </div>
 
     <div class="info cerrado">
+        <header>
+            <nav class="ubicacion">
+                <div id="home-link">
+                    <a href="index.php"><span>Home</span></a>
+                </div>
+                <div id="link">
+                    <i>/</i>
+                    <span>Agregar</span>
+                </div>
+            </nav>
 
-        <nav class="ubicacion">
-            <div id="home-link">
-                <a href="index.php"><span>Home</span></a>
-            </div>
-            <div id="link">
-                <i>/</i>
-                <span>Agregar</span>
-            </div>
-        </nav>
+            <h2 id="titulo-info">Agregar Personaje o Arma</h2>
+        </header>
 
-        <h2>Agregar Personaje o Arma</h2>
-    
-        <label for="tipo">Tipo (Personaje o Arma):</label>
-        <select id="tipo" name="tipo" required onchange="toggleForm()">
-            <option value="">Seleccionar...</option>
-            <option value="Personaje">Personaje</option>
-            <option value="Arma">Arma</option>
-        </select><br><br>
+        <div class="cont-tipo">
+            <label for="tipo" class="tipo">Tipo (Personaje o Arma):</label>
+            <select id="tipo" name="tipo" required onchange="toggleForm()" class="select-tipo">
+                <option value="">Seleccionar...</option>
+                <option value="Personaje">Personaje</option>
+                <option value="Arma">Arma</option>
+            </select>
+        </div>
 
         <!-- Formulario para Personaje -->
         <form id="personaje-form" action="mySQL/dir-agregar-upload.php" method="post" enctype="multipart/form-data" class="formulario" style="display: none;">
-            <label for="name">Nombre del Personaje:</label>
-            <input type="text" id="name" name="name" required><br><br>
+            <div class="caja">
+                <label for="name">Nombre del Personaje:</label>
+                <input type="text" id="name" name="name" class="insertar col-1" required>
+            </div>
 
-            <label for="rareza_DP">Rareza:</label>
-            <select id="rareza_DP" name="rareza_DP" required>
-                <option value="">Seleccionar...</option>
-                <option value="4">4 Estrellas</option>
-                <option value="5">5 Estrellas</option>
-            </select><br><br>
+            <div class="caja">
+                <label for="rareza_DP">Rareza:</label>
+                <select id="rareza_DP" name="rareza_DP" class="selec" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="4">4 Estrellas</option>
+                    <option value="5">5 Estrellas</option>
+                </select>
+            </div>
 
-            <label for="elemento_DP">Elemento:</label>
-            <select name="elemento_DP" id="elemento_DP" required>
-                <option value="">Seleccionar...</option>
-                <option value="pyro">Pyro</option>
-                <option value="cryo">Cryo</option>
-                <option value="electro">Electro</option>
-                <option value="geo">Geo</option>
-                <option value="anemo">Anemo</option>
-                <option value="hydro">Hydro</option>
-            </select><br><br>
+            <div class="caja">
+                <label for="elemento_DP">Elemento:</label>
+                <select name="elemento_DP" id="elemento_DP" class="selec" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="pyro">Pyro</option>
+                    <option value="cryo">Cryo</option>
+                    <option value="electro">Electro</option>
+                    <option value="geo">Geo</option>
+                    <option value="anemo">Anemo</option>
+                    <option value="hydro">Hydro</option>
+                </select>
+            </div>
 
-            <label for="arma_DP">Tipo de Arma:</label>
-            <select name="arma_DP" id="arma_DP" required>
-                <option value="">Seleccionar...</option>
-                <option value="catalizador">Catalizador</option>
-                <option value="arco">Arco</option>
-                <option value="espada">Espada</option>
-                <option value="mandoble">Mandoble</option>
-                <option value="lanza">Lanza</option>
-            </select><br><br>
+            <div class="caja">
+                <label for="arma_DP">Tipo de Arma:</label>
+                <select name="arma_DP" id="arma_DP" class="selec" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="catalizador">Catalizador</option>
+                    <option value="arco">Arco</option>
+                    <option value="espada">Espada</option>
+                    <option value="mandoble">Mandoble</option>
+                    <option value="lanza">Lanza</option>
+                </select>
+            </div>
 
+            <div class="caja">
             <label for="description_DP">Descripción:</label><br>
-            <textarea id="description_DP" name="description_DP" rows="4" cols="50" maxlength="200" required></textarea><br><br>
-
+            <textarea id="description_DP" name="description_DP" maxlength="200" class="insertar col-2" required></textarea>
+            </div>
             
+            <div class="caja">
+                <label for="imagenURL_DP">Subir Imagen del Personaje (URL o Archivo):</label>
+                <input type="text" id="imagenURL_DP" name="imagenURL_DP" placeholder="http://example.com/image.jpg" class="insertar col-1">
+                <br>
+                <label for="file_DP">O subir del local:</label>
+                <input type="file" id="file_DP" name="file_DP" accept="image/*">
+            </div>
 
-            <label for="imagenURL_DP">Subir Imagen del Personaje (URL o Archivo):</label>
-            <input type="text" id="imagenURL_DP" name="imagenURL_DP" placeholder="http://example.com/image.jpg">
-            <br>O<br>
-            <input type="file" id="file_DP" name="file_DP" accept="image/*">
-            <br><br>
+            <div class="cargar">
+                <button type="submit" name="submit_DA">Cargar Arma</button>
+            </div>
 
-
-            <button type="submit" name="submit_DP">Cargar Personaje</button>
+            <div class="cargar">
+                <button type="submit" name="submit_DP">Cargar Personaje</button>
+            </div>
         </form>
 
         <!-- Formulario para Arma -->
         <form id="arma-form" action="mySQL/dir-agregar-upload.php" method="post" enctype="multipart/form-data" class="formulario" style="display: none;">
-            <label for="name_DA">Nombre del Arma:</label>
-            <input type="text" id="name_DA" name="name_DA" required><br><br>
+            <div class="caja">
+                <label for="name_DA">Nombre del Arma:</label>
+                <input type="text" id="name_DA" name="name_DA" class="insertar col-1" required>
+            </div>
 
-            <label for="type_DA">Tipo de Arma:</label>
-            <select name="type_DA" id="type_DA">
-                <option value="">Seleccionar...</option>
-                <option value="catalizador">Catalizador</option>
-                <option value="arco">Arco</option>
-                <option value="espada">Espada</option>
-                <option value="mandoble">Mandoble</option>
-                <option value="lanza">Lanza</option>
-            </select><br><br>
+            <div class="caja">
+                <label for="type_DA">Tipo de Arma:</label>
+                <select name="type_DA" id="type_DA" class="selec" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="catalizador">Catalizador</option>
+                    <option value="arco">Arco</option>
+                    <option value="espada">Espada</option>
+                    <option value="mandoble">Mandoble</option>
+                    <option value="lanza">Lanza</option>
+                </select>
+            </div>
 
-            <label for="calidad_DA">Calidad:</label>
-            <select id="calidad_DA" name="calidad_DA" required>
-                <option value="">Seleccionar...</option>
-                <option value="3">3 Estrellas</option>
-                <option value="4">4 Estrellas</option>
-                <option value="5">5 Estrellas</option>
-            </select><br><br>
+            <div class="caja">
+                <label for="calidad_DA">Calidad:</label>
+                <select id="calidad_DA" name="calidad_DA" class="selec" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="3">3 Estrellas</option>
+                    <option value="4">4 Estrellas</option>
+                    <option value="5">5 Estrellas</option>
+                </select>
+            </div>
 
-            <label for="atributo_DA">Atributo Secundario:</label>
-            <select name="atributo_DA" id="atributo_DA">
-                <option value="">Seleccionar...</option>
-                <option value="ataque">Ataque</option>
-                <option value="defensa">Defensa</option>
-                <option value="vida">Vida</option>
-                <option value="recarga">Recarga</option>
-                <option value="prob.crit">Prob.Crit</option>
-                <option value="daño.crit">Daño.Crit</option>
-            </select><br><br>
+            <div class="caja">
+                <label for="atributo_DA">Atributo Secundario:</label>
+                <select name="atributo_DA" id="atributo_DA" class="selec" required>
+                    <option value="">Seleccionar...</option>
+                    <option value="ataque">Ataque</option>
+                    <option value="defensa">Defensa</option>
+                    <option value="vida">Vida</option>
+                    <option value="recarga">Recarga</option>
+                    <option value="prob.crit">Prob.Crit</option>
+                    <option value="daño.crit">Daño.Crit</option>
+                </select>
+            </div>
 
 
 
+            <div class="caja">
+                <label for="description_DA">Descripción:</label><br>
+                <textarea id="description_DA" name="description_DA" maxlength="200" class="insertar col-2" required></textarea>
+            </div>
 
-            <label for="description_DA">Descripción:</label><br>
-            <textarea id="description_DA" name="description_DA" rows="4" cols="50" maxlength="200" required></textarea><br><br>
+            <div class="caja">
+                <label for="imagenURL_DA">Subir Imagen del Personaje (URL o Archivo):</label>
+                <input type="text" id="imagenURL_DA" name="imagenURL_DA" class="insertar col-1" placeholder="http://example.com/image.jpg">
+                <br>
+                <label for="file_DA">O subir del local:</label>
+                <input type="file" id="file_DA" name="file_DA" accept="image/*">
+            </div>
 
-            <label for="imagenURL_DA">Subir Imagen del Personaje (URL o Archivo):</label>
-            <input type="text" id="imagenURL_DA" name="imagenURL_DA" placeholder="http://example.com/image.jpg">
-            <br>O<br>
-            <input type="file" id="file_DA" name="file_DA" accept="image/*">
-            <br><br>
-
-            <button type="submit" name="submit_DA">Cargar Arma</button>
+            <div class="cargar">
+                <button type="submit" name="submit_DA">Cargar Arma</button>
+            </div>
         </form>
 
 

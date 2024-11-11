@@ -1,6 +1,6 @@
 @font-face {
     font-family: "titulo";
-    src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf);
+    src: url('../../fuentes/InknutAntiqua-ExtraBold.ttf');
 }
 
 body{
@@ -42,6 +42,14 @@ body::before {
         text-decoration: none; /* Quitar subrayado */
         color: inherit; /* Mantener el color de texto como está */
     }
+
+
+/*Fuentes*/
+h1 {
+    font-family: "titulo", serif;
+}
+
+
 
 /* Contenedor principal */
 #contenedor-principal {

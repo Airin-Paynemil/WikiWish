@@ -16,3 +16,6 @@ function toggleForm() {
         armaForm.style.display = "none";
     }
 }
+
+
+

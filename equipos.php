@@ -21,7 +21,7 @@ $result = $conn->query($query);
     <link href="css/barra_arriba.css" rel="stylesheet" type="text/css">
     <link href="css/equipos/equipos.css" rel="stylesheet" type="text/css">
     <title>Equipos Favoritos</title>
-</head>
+</head> 
 <body>
     <!-- Barra de navegación superior -->
     <div class="nav-bar-pc-fixed"> 

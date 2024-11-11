@@ -1,7 +1,183 @@
-.formulario{
-    font-size: larger;
+@font-face {
+    font-family: "black";
+    src: url(../../fuentes/InknutAntiqua-Black.ttf) format("truetype");
+    font-weight: 900; /* Peso específico para Black */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "bold";
+    src: url(../../fuentes/InknutAntiqua-Bold.ttf) format("truetype");
+    font-weight: 700; /* Peso específico para Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "extraBold";
+    src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf) format("truetype");
+    font-weight: 800; /* Peso específico para ExtraBold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "light";
+    src: url(../../fuentes/InknutAntiqua-Light.ttf) format("truetype");
+    font-weight: 100; /* Peso específico para Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "medium";
+    src: url(../../fuentes/InknutAntiqua-Medium.ttf) format("truetype");
+    font-weight: 500; /* Peso específico para Medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "regular";
+    src: url(../../fuentes/InknutAntiqua-Regular.ttf) format("truetype");
+    font-weight: 400; /* Peso específico para Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "semiBold";
+    src: url(../../fuentes/InknutAntiqua-SemiBold.ttf) format("truetype");
+    font-weight: 600; /* Peso específico para SemiBold */
+    font-style: normal;
+}
+
+.cont-tipo{
+    padding: 20px 0 20px 0;
+    align-items: center;
+    justify-content: center; 
 }
 
 select option:first-child {
     display: none;
+}
+
+.tipo{
+    font-family: "extraBold";
+    font-size: 16px;
+    color: rgb(8, 4, 26);
+    padding-right: 10px;
+}
+
+.select-tipo{
+    height: 40px;
+    width: 200px;
+    background: rgb(54, 33, 102);
+    border-radius: 50px;
+    color:rgb(226, 206, 115);
+    border: rgb(37, 23, 102) 2px solid;
+    outline: none;
+
+    text-align: center;
+    font-family: "light";
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+
+
+/*------------------FORMULARIO-----------------------------------*/
+.formulario{
+    font-family: "medium";
+    font-size: 15px;
+}
+
+.col-1{
+    height: 20px;
+    width: 200px;
+}
+
+.col-2{
+    height: 100px;
+    width: 400px;
+}
+
+.insertar {
+    background-color: rgb(226, 206, 115);
+    
+    padding-inline: 20px;
+    border: rgb(44, 23, 102) 2px solid;
+    border-radius: 20px;
+    font-family: "bold";
+    font-size: 10px;
+    color: rgb(44, 23, 102); /* Color inicial de las letras */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Cambia el color de las letras a rosa cuando el campo está enfocado */
+.insertar:focus {
+    border-color: rgb(168, 10, 76); /* Borde rosa */
+    color: rgb(168, 10, 76); /* Letras rosas */
+    outline: none; /* Elimina el borde extra del navegador */
+}
+
+/* Aplica el estilo rosa en autofill en todos los estados */
+input[type="text"]:-webkit-autofill,
+input[type="text"]:-webkit-autofill:hover,
+input[type="text"]:-webkit-autofill:focus,
+input[type="text"]:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px rgb(226, 206, 115) inset !important;
+    -webkit-text-fill-color: rgb(168, 10, 76) !important; /* Mantiene las letras rosas */
+    color: rgb(168, 10, 76) !important; /* Mantiene las letras rosas */
+    font-family: "bold" !important;
+    font-size: 10px !important;
+}
+
+/* Cuando el campo pierde el foco, las letras vuelven a ser violeta */
+.insertar:not(:focus) {
+    color: rgb(44, 23, 102); /* Letras violeta */
+    border-color: rgb(44, 23, 102); /* Borde violeta */
+}
+
+/*---------------------------------------------------------------------*/
+.caja{
+    margin-block-end: 10px;
+    padding-left: 10px;
+    padding-block: 10px;
+    background: rgba(134, 82, 136, 0.473);
+    border-radius: 20px;
+}
+
+.caja label{
+    font-family: "regular";
+    color: rgb(226, 206, 115);
+}
+
+.cargar {
+    text-align: right;
+}
+
+.cargar button{
+    font-size: 12px;
+    font-family: "medium";
+    height: 50px;
+    width: 150px;
+    color: rgb(226, 206, 115);
+    background-color: rgb(168, 10, 76);
+    border-radius: 10px;;
+    cursor: pointer;
+    border: none;
+}
+
+.cargar button:hover{
+    background: rgb(44, 23, 102);
+    color: rgb(226, 206, 115);
+    box-shadow: 0 0 25px #ce37c196;
+}
+
+/*-------------------------------*/
+.selec{
+    background-color: rgb(33, 25, 68);
+    height: 30px;
+    width: 150px;
+    padding-inline: 20px;
+    border-radius: 20px;
+    font-family: "light";
+    font-size: 10px;
+    color: rgb(226, 206, 115); /* Color inicial de las letras */
 }
