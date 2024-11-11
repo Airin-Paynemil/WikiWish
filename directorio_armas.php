@@ -18,7 +18,7 @@ exit();
     <link href="css/directorio/directorio.css" rel="stylesheet" type="text/css">
     <link href="css/directorio/filtros.css" rel="stylesheet" type="text/css">
     <link href="css/directorio/dir-bar-izq.css" rel="stylesheet" type="text/css">
-    <title>directorio</title>
+    <title>Directorio de Armas</title>
 </head>
 <body>
     <!----Esto es la barra de arriba---->

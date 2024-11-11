@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/barra_arriba.css" rel="stylesheet" type="text/css">
@@ -63,8 +63,10 @@ if (!isset($_SESSION['user_id'])) {
         </header>
 
         <form id="team-form" action="mySQL/equipo-guardar.php" method="POST">
-            <label>Nombre del Equipo:</label>
-            <input type="text" name="nombre_equipo" required><br><br>
+            <div class="caja">
+                <label>Nombre del Equipo:</label>
+                <input type="text" name="nombre_equipo" required><br><br>
+            </div>
 
             <!-- Área de personajes seleccionados -->
             <h2>Personajes Seleccionados:</h2>
@@ -75,7 +77,7 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="selected-slot"></div>
                 <div class="selected-slot"></div>
             </div>
-            <br>
+            
 
             <h2>Selecciona los personajes (máximo 4):</h2>
             <div id="character-container">
@@ -91,7 +93,9 @@ if (!isset($_SESSION['user_id'])) {
                 <?php endwhile; ?>
             </div>
             
-            <input type="submit" value="Guardar Equipo">
+            <div class="guardar">
+                <input type="submit" value="Guardar Equipo">
+            </div>
         </form>
     </div>
 

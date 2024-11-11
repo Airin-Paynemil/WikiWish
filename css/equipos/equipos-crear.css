@@ -1,26 +1,77 @@
+@font-face {
+    font-family: "black";
+    src: url(../../fuentes/InknutAntiqua-Black.ttf) format("truetype");
+    font-weight: 900; /* Peso específico para Black */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "bold";
+    src: url(../../fuentes/InknutAntiqua-Bold.ttf) format("truetype");
+    font-weight: 700; /* Peso específico para Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "extraBold";
+    src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf) format("truetype");
+    font-weight: 800; /* Peso específico para ExtraBold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "light";
+    src: url(../../fuentes/InknutAntiqua-Light.ttf) format("truetype");
+    font-weight: 100; /* Peso específico para Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "medium";
+    src: url(../../fuentes/InknutAntiqua-Medium.ttf) format("truetype");
+    font-weight: 500; /* Peso específico para Medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "regular";
+    src: url(../../fuentes/InknutAntiqua-Regular.ttf) format("truetype");
+    font-weight: 400; /* Peso específico para Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "semiBold";
+    src: url(../../fuentes/InknutAntiqua-SemiBold.ttf) format("truetype");
+    font-weight: 600; /* Peso específico para SemiBold */
+    font-style: normal;
+}
+
+/*----------------------------------------------------------------------------*/
+
 .character-card {
     display: inline-block;
     width: 150px;
     height: 200px;
     text-align: center;
     margin: 10px;
-    padding: 10px;
-    border: 2px solid #ccc;
+    padding: 20px 10px 20px 10px;
+    border: 2px solid rgb(199, 174, 62);
     border-radius: 10px;
     position: relative;
     cursor: pointer;
-    background-color: #f9f9f9;
+    background-color: rgb(226, 206, 115);
 }
 
-.character-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
+
 
 .character-card label {
     display: block;
     margin-top: 10px;
+    color: rgb(110, 14, 35);
+
+    font-family: "medium";
+    font-size: 12px;
     font-weight: bold;
 }
 
@@ -45,9 +96,10 @@
 .character-card img {
     width: 110px; /* Aumentamos un poco el tamaño de la imagen */
     height: 110px; /* Ajustamos la altura proporcionalmente */
-    border-radius: 50%; /* Mantiene la imagen redonda */
-    border: 4px solid #ff6f61; /* Borde de color (puedes cambiarlo) */
-    padding: 5px; /* Espacio entre la imagen y el borde */
+    border-radius: 10%; /* Mantiene la imagen redonda */
+    border: 3px solid rgb(199, 174, 62); /* Borde de color (puedes cambiarlo) */
+    background: rgba(185, 86, 172, 0.2);
+    padding: 0px; /* Espacio entre la imagen y el borde */
     box-sizing: border-box;
     transition: transform 0.3s ease; /* Agregamos una transición suave para el zoom */
 }
@@ -58,7 +110,8 @@
 
 .character-card label {
     display: block;
-    margin-top: 10px;
+    margin-top: 15px;
+
     font-weight: bold;
 }
 
@@ -69,7 +122,7 @@
 /* Añade estilo cuando el personaje está seleccionado */
 .character-card.selected {
     border-color: #4CAF50;
-    background-color: #e6ffe6;
+    background-color: #b3dab3;
 }
 
 /* Estilos para el área de personajes seleccionados */
@@ -83,7 +136,8 @@
 .selected-slot {
     width: 100px;
     height: 100px;
-    border: 2px dashed #ccc;
+    border: 2px dashed rgb(226, 206, 115);/*borde tipo dashed*/
+    background-color: rgba(226, 206, 115, 0.5);
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -97,4 +151,86 @@
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.caja{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-block-end: 10px;
+    padding-block: 10px;
+}
+
+.caja label{
+    color: rgb(9, 6, 22);
+    font-family: "semibold";
+    font-size: 15px;
+}
+
+.caja input {
+    background-color: rgb(226, 206, 115);
+    padding-inline: 20px;
+    border: rgb(44, 23, 102) 2px solid;
+    border-radius: 20px;
+    font-family: "bold";
+    font-size: 10px;
+    color: rgb(44, 23, 102); /* Color inicial de las letras */
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Cambia el color de las letras a rosa cuando el campo está enfocado */
+.caja input:focus {
+    border-color: rgb(168, 10, 76); /* Borde rosa */
+    color: rgb(168, 10, 76); /* Letras rosas */
+    outline: none; /* Elimina el borde extra del navegador */
+}
+
+/* Aplica el estilo rosa en autofill en todos los estados */
+input[type="text"]:-webkit-autofill,
+input[type="text"]:-webkit-autofill:hover,
+input[type="text"]:-webkit-autofill:focus,
+input[type="text"]:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px rgb(226, 206, 115) inset !important;
+    -webkit-text-fill-color: rgb(168, 10, 76) !important; /* Mantiene las letras rosas */
+    color: rgb(168, 10, 76) !important; /* Mantiene las letras rosas */
+    font-family: "bold" !important;
+    font-size: 10px !important;
+}
+
+/* Cuando el campo pierde el foco, las letras vuelven a ser violeta */
+.caja input:not(:focus) {
+    color: rgb(44, 23, 102); /* Letras violeta */
+    border-color: rgb(44, 23, 102); /* Borde violeta */
+}
+
+
+h2{
+    padding-block: 10px;
+    color: rgb(9, 6, 22);
+
+    font-family: "extraBold";
+    font-size: 22px;
+}
+
+
+.guardar {
+    text-align: right;
+}
+
+.guardar input{
+    font-size: 12px;
+    font-family: "medium";
+    height: 50px;
+    width: 150px;
+    color: rgb(226, 206, 115);
+    background-color: rgb(168, 10, 76);
+    border-radius: 10px;;
+    cursor: pointer;
+    border: none;
+}
+
+.guardar input:hover{
+    background: rgb(44, 23, 102);
+    color: rgb(226, 206, 115);
+    box-shadow: 0 0 25px #ce37c196;
 }

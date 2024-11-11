@@ -19,7 +19,7 @@ exit();
     <link href="css/directorio/directorio.css" rel="stylesheet" type="text/css">
     <link href="css/directorio/filtros.css" rel="stylesheet" type="text/css">
     <link href="css/directorio/dir-bar-izq.css" rel="stylesheet" type="text/css">
-    <title>Directorio</title>
+    <title>Directorio de Personajes</title>
 </head>
 <body>
     <!----Esto es la barra de arriba---->

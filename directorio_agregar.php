@@ -18,7 +18,7 @@ exit();
     <link href="css/directorio/directorio.css" rel="stylesheet" type="text/css">
     <link href="css/directorio/dir-agregar.css" rel="stylesheet" type="text/css">
     <link href="css/directorio/dir-bar-izq.css" rel="stylesheet" type="text/css">
-    <title>directorio</title>
+    <title>Agregar a Directorio</title>
 </head>
 <body>
     <!----Esto es la barra de arriba---->
@@ -129,10 +129,6 @@ exit();
                 <br>
                 <label for="file_DP">O subir del local:</label>
                 <input type="file" id="file_DP" name="file_DP" accept="image/*">
-            </div>
-
-            <div class="cargar">
-                <button type="submit" name="submit_DA">Cargar Arma</button>
             </div>
 
             <div class="cargar">

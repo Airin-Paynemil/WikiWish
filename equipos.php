@@ -54,12 +54,17 @@ $result = $conn->query($query);
                 <span>Equipos Favoritos</span>
             </div>
         </nav>
-        <header>
+
+        <header class="flex-titulo">
             <h1>Equipos Favoritos</h1>
         </header>
 
-        <!-- Enlace para crear un nuevo equipo -->
-        <a href="http://localhost/Wiki/equipos-crear.php"><span>Crear nuevo equipo</span></a>
+        <div class="nuevo">
+            <!-- Enlace para crear un nuevo equipo -->
+            <a href="http://localhost/Wiki/equipos-crear.php"><span>Crear nuevo equipo</span></a>
+        </div>
+
+        
 
         <!-- Mostrar los equipos -->
         <div class="equipos-container">
@@ -87,7 +92,10 @@ $result = $conn->query($query);
                             <!-- Botón de eliminar -->
                             <form method="POST" action="mySQL/equipo-eliminar.php">
                                 <input type="hidden" name="id_equipo" value="<?php echo $id_equipo; ?>">
-                                <button type="submit" class="delete-btn">Eliminar</button>
+                                
+                                <div class="button-container">
+                                    <button class="delete-btn">Eliminar</button>
+                                </div>
                             </form>
                         </div>
                     <?php endwhile; ?>

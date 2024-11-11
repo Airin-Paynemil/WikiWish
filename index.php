@@ -13,7 +13,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/barra_arriba.css" rel="stylesheet" type="text/css">
     <link href="css/inicio.css" rel="stylesheet" type="text/css">
-    <title>WikiWish</title>
+    <title>Menu de Inicio</title>
 </head>
 <body>
     <!-- Barra de arriba -->
@@ -47,7 +47,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="cajita">
             <div class="svg-wrapper">
                 <div class="iconos-menu">
-                    <div class="imagen"></div>
+                    <div id="img1"></div>
                 </div>
                 <div class="btn draw-border" id="miBoton1">Personajes</div>
             </div>
@@ -56,7 +56,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="cajita">
             <div class="svg-wrapper">
                 <div class="iconos-menu">
-                    <div class="imagen"></div>
+                    <div id="img2"></div>
                 </div>
                 <div class="btn draw-border" id="miBoton2">Armas</div>
             </div>
@@ -65,7 +65,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="cajita">
             <div class="svg-wrapper">
                 <div class="iconos-menu">
-                    <div class="imagen"></div>
+                    <div id="img3"></div>
                 </div>
                 <div class="btn draw-border" id="miBoton3">+Agregar</div>
             </div>
@@ -74,7 +74,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="cajita">
             <div class="svg-wrapper">
                 <div class="iconos-menu">
-                    <div class="imagen"></div>
+                    <div id="img4"></div>
                 </div>
                 <div class="btn draw-border" id="miBoton4">Equipos Favoritos</div>
             </div>

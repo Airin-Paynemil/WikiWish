@@ -72,12 +72,11 @@ body::before {
 
 .ubicacion {
     display: flex;
-    margin-bottom: 10px;
+    gap: 5px; /* Espacio entre los elementos dentro del nav */
 }
 
 #titulo-info {
-    padding: 0%;
-    margin: 0px 0px 10px 0px;
+    margin-top: 10px; /* Añade espacio entre el nav y el título */
     font-size: 30px;
     font-family: "titulo";
 }
@@ -96,6 +95,12 @@ body::before {
 #home-link a {
     text-decoration: none; /* Quitar subrayado */
     color: inherit; /* Mantener el color de texto como está */
+}
+
+header{
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: flex-start; /* Alinea el contenido a la izquierda */
 }
 
 .info {
@@ -123,7 +128,7 @@ body::before {
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background-color: rgba(55, 29, 92, 0.9);
+    background-color: rgba(54, 33, 102, 0.9);
     border: rgb(44, 23, 102) 2px solid;
     height: 150px;
     box-sizing: border-box;
@@ -185,7 +190,7 @@ body::before {
 .nombre {
     padding: 0px 0px 5px 0px;
     text-align: left;
-    color: rgb(84, 180, 218);
+    color: rgb(211, 192, 82);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
 }

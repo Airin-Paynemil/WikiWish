@@ -1,36 +1,85 @@
 @font-face {
-    font-family: "titulo";
-    src: url('../../fuentes/InknutAntiqua-ExtraBold.ttf');
+    font-family: "black";
+    src: url(../../fuentes/InknutAntiqua-Black.ttf) format("truetype");
+    font-weight: 900; /* Peso específico para Black */
+    font-style: normal;
 }
 
-body{
+@font-face {
+    font-family: "bold";
+    src: url(../../fuentes/InknutAntiqua-Bold.ttf) format("truetype");
+    font-weight: 700; /* Peso específico para Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "extraBold";
+    src: url(../../fuentes/InknutAntiqua-ExtraBold.ttf) format("truetype");
+    font-weight: 800; /* Peso específico para ExtraBold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "light";
+    src: url(../../fuentes/InknutAntiqua-Light.ttf) format("truetype");
+    font-weight: 100; /* Peso específico para Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "medium";
+    src: url(../../fuentes/InknutAntiqua-Medium.ttf) format("truetype");
+    font-weight: 500; /* Peso específico para Medium */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "regular";
+    src: url(../../fuentes/InknutAntiqua-Regular.ttf) format("truetype");
+    font-weight: 400; /* Peso específico para Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "semiBold";
+    src: url(../../fuentes/InknutAntiqua-SemiBold.ttf) format("truetype");
+    font-weight: 600; /* Peso específico para SemiBold */
+    font-style: normal;
+}
+
+/*----------------------------------------------------------------------------*/
+
+body {
     background: url('../../imagenes/fondo_4.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Hace que la imagen de fondo se quede fija mientras se desplaza el contenido */
-    min-height: 100vh; /* Garantiza que el contenedor tenga al menos el tamaño de la pantalla */
-    padding-top: 56px; /* Deja espacio en la parte superior para la barra */
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+    background-attachment: fixed; /* La imagen de fondo se queda fija */
+    min-height: 100vh;
+    padding-top: 56px;
+    box-sizing: border-box;
+    position: relative; /* Necesario para la capa overlay */
 }
 
 body::before {
     content: '';
-    position: absolute;
+    position: fixed; /* La capa se fija en la pantalla, sin desplazarse */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%; /* Esto asegura que cubra el cuerpo completo, incluso si la página es más larga */
-    background-color: rgba(65, 37, 109, 0.4); /* Color con transparencia */
-    z-index: -1; /* Asegura que el contenido esté por encima de la capa */
+    height: 100vh; /* Cubre la altura de la pantalla */
+    background-color: rgba(65, 37, 109, 0.4); /* Capa de color traslúcido */
+    z-index: -1; /* El contenido estará por encima de la capa */
 }
+
 
 
 .ubicacion{
     display: flex;
-    margin-bottom: 10px;
+    align-items: center; /* Alinea verticalmente */
 }
 
 .link {
     font-family: 'Inknut';
     src: url(../fuentes/InknutAntiqua-Light.ttf);
+    color: rgb(21, 15, 46);
 }
 
 .home-link {
@@ -44,11 +93,44 @@ body::before {
     }
 
 
-/*Fuentes*/
-h1 {
-    font-family: "titulo", serif;
+
+header {
+    padding-block: 10px;
 }
 
+header h1 {
+    margin-right: 20px; /* Espacio entre el título y el enlace */
+    font-family: "extraBold";
+    font-size: 30px;
+    color: rgb(9, 6, 22);
+}
+
+
+.nuevo {
+    margin-bottom: 10px;
+    height: 50px;
+}
+
+.nuevo a {
+    background: rgba(186, 194, 75, 0.89);
+    border-radius: 5px; /* Bordes redondeados */
+    height: 100%;
+    width: 100%;
+    align-content: center;
+    text-align: center;
+
+    color: rgb(21, 10, 22);
+    font-family: "bold";
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block; /* Asegura que el enlace actúe como botón */
+    transition: background-color 0.3s ease;
+}
+
+.nuevo a:hover {
+    background-color: rgb(58, 6, 26); /* Cambia el color del fondo al pasar el mouse */
+    color: #e4d26d ;
+}
 
 
 /* Contenedor principal */
@@ -70,24 +152,35 @@ h1 {
 /* Card para cada equipo */
 .equipo-card {
     width: 100%;
-    background-color: #f5f5f5;
+    background-color: rgba(44, 23, 102, 0.719);
+    border-radius: 10px;
     padding: 20px;
     box-sizing: border-box; /* Asegura que el padding se incluya en el tamaño total */
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     margin: 0; /* Evitar márgenes adicionales que puedan causar desbordes */
 }
 
+.equipo-header {
+    display: flex;
+    align-items: flex-start; /* Centra verticalmente el contenido */
+    height: 50px;
+}
 
 .equipo-header h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    margin: 0; /* Elimina cualquier margen para asegurar que esté alineado */
+    color: #000000; /* Cambia este color según lo que prefieras */
+    font-family: "bold";
+    font-size: 22px;
 }
+
+
 
 /* Contenedor para los personajes */
 .personajes-container {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     flex-wrap: wrap;
+    margin-bottom: 10px;
 }
 
 /* Card para cada personaje */
@@ -95,17 +188,16 @@ h1 {
     width: 120px;
     text-align: center;
     padding: 10px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    background-color: rgb(226, 206, 115);
+    border-radius: 5%;
 }
 
 /* Estilo para la imagen del personaje dentro de un div azul */
 .personaje-card .image-container {
     width: 100px;  /* Tamaño del div que contiene la imagen */
     height: 100px;  /* Tamaño del div que contiene la imagen */
-    background-color: #e4d26d; 
     border-radius: 10%;  /* Borde redondeado para que el contenedor también sea circular */
+    border: rgb(182, 151, 68) 2px solid;
     display: flex;
     align-items: center;  /* Centra la imagen verticalmente */
     justify-content: center;  /* Centra la imagen horizontalmente */
@@ -114,12 +206,25 @@ h1 {
 }
 
 .personaje-card img {
-    width: 90px;  /* Tamaño de la imagen dentro del contenedor */
-    height: 90px;  /* Tamaño de la imagen dentro del contenedor */
+    width: 100%;  /* Tamaño de la imagen dentro del contenedor */
+    height: 100%;  /* Tamaño de la imagen dentro del contenedor */
     border-radius: 10%;  /* Mantiene la imagen redonda */
 }
 
+.personaje-name{
+    align-items: center;;
+    font-family: "medium";
+    font-size: 12px;
+    color: rgb(32, 3, 56);
+}
+
+
 /* Estilo para el botón de eliminar */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Alinea el botón a la derecha */
+}
+
 .delete-btn {
     background-color: #ff0000;
     color: #fff;
@@ -131,7 +236,7 @@ h1 {
 }
 
 .delete-btn:hover {
-    background-color: #e60000;
+    background-color: rgb(58, 6, 26);
 }
 
 /* Mensaje cuando no hay equipos */
